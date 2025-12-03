@@ -3,80 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projets | Poursuite d'études</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>SAE Poursuite d'Études | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" type="image/ico" href="images/favicon.ico">
 </head>
 <body>
-<div id="page">
-    <header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner">
-        <div class="overlay"></div>
-        <div class="container" style="text-align: center">
-            <div class="col-md-12 text-center center-image-container">
-                <img src="images/projets/listeEtudiant.png" alt="Poursuite d'études" class="center-image">
 
-                <style>
-                    /* Ajout de styles pour centrer l'image */
-                    .center-image-container {
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        height: 100%; /* Pour centrer sur toute la hauteur disponible */
-                    }
-                    .center-image {
-                        height: auto;
-                        width: 60vw; /* Vous pouvez ajuster cette valeur selon vos besoins */
-                        border-style: dashed;
-                        border-width: 5px;
-                        border-color: #DD356EFF;
-                    }
-                </style>
+<style>
+    .hero-image-wrapper {
+        width: 100%;
+        max-width: 700px;
+        height: auto;
+        border-radius: 20px;
+    }
+</style>
+<!-- Custom Cursor -->
+<div id="cursor"></div>
+<div id="cursor-follower"></div>
 
-            </div>
-            <h1 class="title-effect main-title">SAE Poursuite d'Études</h1>
+<!-- Navigation -->
+<nav id="navbar">
+    <div class="logo">SACHA<span class="dot">.</span></div>
+    <ul class="nav-links">
+        <li><a href="index.html#home">Accueil</a></li>
+        <li><a href="index.html#about">À propos</a></li>
+        <li><a href="index.html#skills">Compétences</a></li>
+        <li><a href="index.html#portfolio">Portfolio</a></li>
+        <li><a href="index.html#experience">Expérience</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+
+    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Changer de thème">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
+    </button>
+
+    <div class="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-bg">
+        <div class="grid-overlay"></div>
+    </div>
+    <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+    <div class="hero-content">
+        <div class="hero-image-wrapper">
+            <img src="images/projets/listeEtudiant.png" alt="SAE Poursuite d'Études">
         </div>
-    </header>
-
-    <div class="project-content text-center">
-        <section>
-            <h2 class="title-effect">Objectif Principal</h2>
-            <p>Créer une application web permettant de gérer et de suivre la poursuite d’études des étudiants. La plateforme offre des fonctionnalités d’importation de données et permet à différents utilisateurs de se connecter selon leurs rôles.</p>
-        </section>
-
-        <section>
-            <h2 class="title-effect">Fonctionnalités Clés</h2>
-            <ul>
-                <li><strong>Importation et Gestion des Données</strong>: Importation de fichiers CSV pour étudiants, résultats, parcours, écoles. Validation et vérification des données.</li>
-                <li><strong>Agrégations et Avis</strong>: Regroupement de modules, création d'avis avec calcul automatique pour faciliter le jury.</li>
-                <li><strong>Gestion des Utilisateurs</strong>:
-                    <ul>
-                        <li>Étudiants : Accès aux options de postulation.</li>
-                        <li>Professeurs : Suivi des étudiants et ajout d’avis.</li>
-                        <li>Administrateurs : Gestion des utilisateurs et des données.</li>
-                        <li>Écoles : Accès aux postulations faites à leur encontre.</li>
-                    </ul>
-                </li>
-                <li><strong>Méthode Agile</strong>: Réalisation de différents sprints pour recueillir les besoins du client, coordination de l’équipe en tant que product owner.</li>
-                <li><strong>Sécurité et Authentification</strong>: Connexion sécurisée avec gestion des rôles et permissions spécifiques.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2 class="title-effect">Architecture Technique</h2>
-            <ul>
-                <li><strong>Frontend</strong>: HTML5, CSS</li>
-                <li><strong>Backend</strong>: PHP</li>
-                <li><strong>Base de Données</strong>: InnoDB</li>
-            </ul>
-        </section>
+        <div class="glitch-wrapper">
+            <h1 class="glitch">SAE Poursuite d'Études</h1>
+        </div>
+        <p class="hero-subtitle">Plateforme de gestion de parcours étudiants</p>
     </div>
+</section>
 
-    <br><br>
-    <div style="justify-content: center; text-align: center">
-        <a href="index.html#projects" style="text-decoration: none" class="btn btn-primary back-button">Retour aux Projets</a>
+<!-- Project Content -->
+<section class="about">
+    <div class="container">
+        <div class="about-content">
+            <div class="about-text">
+                <h2 class="lead">🎯 Objectif Principal</h2>
+                <p>Créer une application web permettant de gérer et de suivre la poursuite d'études des étudiants. La plateforme offre des fonctionnalités d'importation de données et permet à différents utilisateurs de se connecter selon leurs rôles.</p>
+
+                <h2 class="lead" style="margin-top: 3rem;">⚙️ Architecture Technique</h2>
+                <p><strong>Frontend:</strong> HTML5, CSS</p>
+                <p><strong>Backend:</strong> PHP</p>
+                <p><strong>Base de Données:</strong> InnoDB</p>
+            </div>
+
+            <div class="about-features">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Importation et Gestion des Données</h3>
+                    <p>Importation de fichiers CSV pour étudiants, résultats, parcours, écoles. Validation et vérification des données.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📝</div>
+                    <h3>Agrégations et Avis</h3>
+                    <p>Regroupement de modules, création d'avis avec calcul automatique pour faciliter le jury.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Gestion Multi-Utilisateurs</h3>
+                    <p>Étudiants, Professeurs, Administrateurs et Écoles - chacun avec ses propres permissions et fonctionnalités.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Méthode Agile</h3>
+                    <p>Réalisation de différents sprints pour recueillir les besoins du client, coordination de l'équipe en tant que product owner.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Sécurité et Authentification</h3>
+                    <p>Connexion sécurisée avec gestion des rôles et permissions spécifiques pour chaque type d'utilisateur.</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 4rem;">
+            <a href="index.html#portfolio" class="btn btn-primary btn-large">
+                ← Retour aux Projets
+            </a>
+        </div>
     </div>
-    <br><br><br>
-</div>
+</section>
 
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-content">
+        <p>&copy; 2024 Portfolio. Tous droits réservés.</p>
+        <p class="footer-tagline">Conçu avec passion</p>
+    </div>
+</footer>
+
+<script>
+    // Custom Cursor
+    const cursor = document.getElementById('cursor');
+    const cursorFollower = document.getElementById('cursor-follower');
+
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+
+        setTimeout(() => {
+            cursorFollower.style.left = e.clientX + 'px';
+            cursorFollower.style.top = e.clientY + 'px';
+        }, 100);
+    });
+
+    // Theme Toggle
+    function toggleTheme() {
+        document.body.classList.toggle('light-theme');
+        localStorage.setItem('theme', document.body.classList.contains('light-theme') ? 'light' : 'dark');
+    }
+
+    // Load saved theme
+    if (localStorage.getItem('theme') === 'light') {
+        document.body.classList.add('light-theme');
+    }
+</script>
 </body>
 </html>

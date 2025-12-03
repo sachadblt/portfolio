@@ -1,642 +1,496 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Sacha DOUBLET | Portfolio</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Portfolio de Sacha DOUBLET - Développeur Full-Stack" />
-	<meta name="keywords" content="développeur, full-stack, étudiant, IUT, Sète, portfolio" />
-	<meta name="author" content="Sacha DOUBLET" />
-
-	<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
-	<link rel="stylesheet" href="css/animate.css">
-	<link rel="stylesheet" href="css/icomoon.css">
-	<link rel="stylesheet" href="css/bootstrap.css">
-	<link rel="stylesheet" href="css/flexslider.css">
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="icon" type="image/ico" href="images/favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sacha DOUBLET | Développeur Full-Stack</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/ico" href="images/favicon.ico">
 </head>
 <body>
-<div class="fh5co-loader"></div>
-<div id="page">
-	<nav class="fh5co-nav" role="navigation">
-		<div class="top-menu">
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-2">
-						<div id="fh5co-logo"><a href="index.html">Sacha<span>.</span></a></div>
-					</div>
-					<div class="col-xs-10 text-right menu-1">
-						<ul>
-							<li class="active"><a href="index.html">Accueil</a></li>
-							<li><a href="#portfolio-apprentissage">Portfolio d'apprentissage</a></li>
-							<li><a href="#projects">Projets</a></li>
-							<li><a href="#skills">Compétences</a></li>
-							<li><a href="#experience">Expériences</a></li>
-							<li><a href="#contact">Contact</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</nav>
-	<br><br>
-	<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner">
-    <div class="overlay"></div>
+<div id="cursor"></div>
+<div id="cursor-follower"></div>
+
+<nav id="navbar">
+    <div class="logo">SACHA<span class="dot">.</span></div>
+    <ul class="nav-links">
+        <li><a href="#home">Accueil</a></li>
+        <li><a href="#about">À propos</a></li>
+        <li><a href="#skills">Compétences</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#experience">Expérience</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Changer de thème">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
+    </button>
+
+    <div class="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</nav>
+
+<section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="grid-overlay"></div>
+
+    <div class="hero-content">
+        <div class="hero-image-wrapper">
+            <img src="images/photo.png" alt="Photo de Sacha DOUBLET" class="hero-image">
+        </div>
+
+        <div class="glitch-wrapper">
+            <h1 class="glitch" data-text="SACHA DOUBLET">SACHA DOUBLET</h1>
+        </div>
+
+        <div class="hero-subtitle">
+            <span class="typing-text"></span>
+            <span class="cursor-blink">|</span>
+        </div>
+
+        <p class="hero-description">
+            Étudiant en 3ème année à l'IUT informatique de Montpellier-Sète
+        </p>
+
+        <div class="hero-cta">
+            <a href="#portfolio" class="btn btn-primary">
+                <span>Découvrir mes projets</span>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </a>
+            <a href="ressources/CV%20Sacha%20Doublet.pdf" class="btn btn-secondary" download>
+                <span>Télécharger mon CV</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="scroll-indicator">
+        <div class="mouse"></div>
+        <span>Scroll</span>
+    </div>
+
+    <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+</section>
+
+<section class="about" id="about">
     <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 text-center">
-                <div class="display-t js-fullheight">
-					<div class="display-t js-fullheight">
-						<div data-animate-effect="fadeIn">
-							<div class="image-container">
-								<img src="images/photoNom.png" alt="Sacha DOUBLET" class="responsive-img">
-								<div class="alternate-content">
-									<img src="images/alternatePhotoNom.png" alt="Sacha DOUBLET">
-									<h1 class="title-effect main-title">Sacha DOUBLET</h1>
-									<h2>Développeur Full-Stack</h2>
-									<h3>Etudiant en 2ème année à l'IUT informatique de Montpellier-Sète</h3>
-								</div>
-							</div>
-							<script>
-								const responsiveImg = document.querySelector('.responsive-img');
-								const alternateContent = document.querySelector('.alternate-content');
+        <div class="section-header">
+            <span class="section-number">01</span>
+            <h2 class="section-title">Qui suis-je ?</h2>
+        </div>
 
-								function handleResize() {
-									if (window.innerWidth <= 800) { // Si la largeur d'écran est petite
-										responsiveImg.style.display = 'none';
-										alternateContent.style.display = 'block';
-									} else {
-										responsiveImg.style.display = 'block';
-										alternateContent.style.display = 'none';
-									}
-								}
+        <div class="about-content">
+            <div class="about-text">
+                <p class="lead">
+                    Passionné de technologie et de création numérique, je suis un développeur Full-Stack en devenir.
+                </p>
+                <p>
+                    Mon parcours à l'IUT de Montpellier-Sète m'a doté d'une solide base technique, tandis que mes expériences professionnelles variées ont forgé ma capacité d'adaptation et ma créativité.
+                </p>
+                <p>
+                    Je transforme des idées en solutions concrètes, en combinant rigueur technique et approche innovante.
+                </p>
 
-								// Initial check + on resize
-								window.addEventListener('resize', handleResize);
-								handleResize();
-							</script>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="2">0</span>
+                        <span class="stat-label">Années d'études</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="10">0</span>
+                        <span class="stat-label">Projets réalisés</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="3">0</span>
+                        <span class="stat-label">Langues parlées</span>
+                    </div>
+                </div>
+            </div>
 
-							<p>
-                            <a class="btn btn-primary btn-lg btn-demo" href="#projects">Voir mes projets</a>
-                            <a href="ressources/CV%20Sacha%20Doublet.pdf" class="btn btn-primary btn-lg" download>Télécharger mon CV</a>
-                            <a href="#contact" class="btn btn-primary btn-lg btn-learn">Me Contacter</a>
-                        </p>
+            <div class="about-features">
+                <div class="feature-card">
+                    <div class="feature-icon">💻</div>
+                    <h3>Développement Web</h3>
+                    <p>HTML/CSS, PHP, JavaScript et technologies web modernes</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🗄️</div>
+                    <h3>Bases de données</h3>
+                    <p>Conception et gestion SQL, modélisation et optimisation</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Communication</h3>
+                    <p>Français natif, Anglais C1, Espagnol B1</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="skills" id="skills">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-number">02</span>
+            <h2 class="section-title">Compétences Techniques</h2>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Frontend</h3>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>HTML/CSS</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="--width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>JavaScript</span>
+                        <span>60%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="--width: 60%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Backend</h3>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>PHP</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="--width: 80%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>SQL</span>
+                        <span>70%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="--width: 70%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>Python</span>
+                        <span>70%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="--width: 70%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Programmation</h3>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>Java</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="--width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>C</span>
+                        <span>60%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="--width: 60%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>Bash</span>
+                        <span>60%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="--width: 60%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Outils</h3>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>Git/GitHub</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="--width: 90%"></div>
                     </div>
                 </div>
             </div>
         </div>
-    	</div>
-	</div>
-</header>
+    </div>
+</section>
 
-	<div id="fh5co-about" class="animate-box">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center">
-					<div class="about-content">
-						<h2 class="title-effect">Qui suis-je ?</h2>
-						<p class="lead">Passionné de technologie et de création numérique, je suis Sacha DOUBLET, un développeur Full-Stack en devenir. Mon parcours à l'IUT de Montpellier-Sète m'a doté d'une solide base technique, tandis que mes expériences professionnelles variées ont forgé ma capacité d'adaptation et ma créativité.</p>
-						<p>Je transforme des idées en solutions concrètes, en combinant rigueur technique et approche innovante. Toujours à l'affût des dernières tendances technologiques, je m'efforce de repousser les limites de ce qui est possible dans le monde numérique.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div id="fh5co-features">
-		<div class="container">
-			<div class="services-padding">
-				<div class="row">
-					<div class="col-md-4 animate-box">
-						<div class="feature-left">
-                                <span class="icon">
-                                    <i class="icon-code"></i>
-                                </span>
-							<div class="feature-copy">
-								<h3>Développement Web</h3>
-								<p>HTML/CSS, PHP, JavaScript et autres technologies web modernes. Création de sites et applications web responsives.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 animate-box">
-						<div class="feature-left">
-                                <span class="icon">
-                                    <i class="icon-database"></i>
-                                </span>
-							<div class="feature-copy">
-								<h3>Bases de données</h3>
-								<p>Conception et gestion de bases de données SQL. Modélisation de données et optimisation des requêtes.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 animate-box">
-						<div class="feature-left">
-                                <span class="icon">
-                                    <i class="icon-chat"></i>
-                                </span>
-							<div class="feature-copy">
-								<h3>Communication</h3>
-								<p>Trilangue: Français natif, Anglais C1, Espagnol B1. Expérience en relation client et travail d'équipe.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<br>
-	<br>
-
-	<div id="portfolio-apprentissage" class="text-center" style="padding: 20px 0;">
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2 class="title-effect section-title" style="color: #d34f00">Portfolio d'apprentissage</h2>
-					<p style="color: #ae6f00">Validation des compétences acquises au cours de ma formation BUT Informatique</p>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="col-md-10 col-md-offset-1 text-center">
-					<p>Ce portfolio d'apprentissage a pour objectif de démontrer et justifier l'acquisition des compétences de niveau 2 du BUT Informatique. Conformément au référentiel national, je présente ici les apprentissages critiques et composantes essentielles des 3 compétences qui s'arrêtent au niveau 2.</p>
-				</div>
-			</div>
-
-			<!-- COMPÉTENCE ADMINISTRER -->
-			<div class="row" style="margin-top: 40px; margin-bottom: 20px;">
-				<div class="col-md-12 text-left">
-					<h3 style="color: #D34F00FF; border-left: 4px solid #D34F00; padding-left: 10px;">Compétence 3 : Administrer</h3>
-					<p><strong>Niveau 2 :</strong> Déployer des services dans une architecture réseau</p>
-
-					<div style="background-color: #f9f9f9; padding: 15px; margin: 15px 0; border-radius: 5px;">
-						<h4 style="color: #DD356E;">AC 1 : Concevoir et développer des applications communicantes</h4>
-						<p><em>CE3.01 | en sécurisant le système d'information</em></p>
-
-						<div style="background-color: #f5f5f5; border: 1px solid #e3e3e3; border-radius: 5px; padding: 15px; margin-top: 15px;">
-							<h5><strong>Trace : SAE Trains - Authentification sécurisée</strong></h5>
-							<p>Dans le cadre du projet "SAE Trains", j'ai implémenté un système d'authentification sécurisé pour permettre aux joueurs de s'identifier de manière fiable.</p>
-
-							<div style="background-color: #fff; border-left: 3px solid #DD356E; padding: 10px 15px; margin-top: 15px;">
-								<p>Cette implémentation m'a permis de comprendre l'importance de la sécurisation des données utilisateurs. J'ai appliqué le principe de stockage sécurisé des mots de passe en utilisant un algorithme de hashage SHA-256, évitant ainsi de stocker les mots de passe en clair. De plus, j'ai implémenté une gestion de session pour maintenir l'authentification des utilisateurs tout en respectant les bonnes pratiques de sécurité.</p>
-							</div>
-						</div>
-					</div>
-
-					<div style="background-color: #f9f9f9; padding: 15px; margin: 15px 0; border-radius: 5px;">
-						<h4 style="color: #DD356E;">AC 2 : Utiliser des serveurs et des services réseaux virtualisés</h4>
-						<p><em>CE3.03 | en appliquant les normes en vigueur et les bonnes pratiques architecturales et de sécurité</em></p>
-
-						<div style="background-color: #f5f5f5; border: 1px solid #e3e3e3; border-radius: 5px; padding: 15px; margin-top: 15px;">
-							<h5><strong>Trace : Stage Premium Water Distribution - Déploiement du module sur serveur de production</strong></h5>
-							<p>Durant mon stage chez Premium Water Distribution, j'ai déployé le module d'exportation statistique sur un serveur de production PrestaShop.</p>
-
-							<div style="background-color: #fff; border-left: 3px solid #DD356E; padding: 10px 15px; margin-top: 15px;">
-								<p>Cette expérience m'a permis de mettre en pratique l'utilisation de services réseaux dans un environnement professionnel. J'ai configuré et déployé le module sur différents environnements (développement, préproduction, production) en respectant les bonnes pratiques de sécurité. J'ai notamment mis en place des règles de pare-feu, configuré des certificats SSL et appliqué les principes de moindre privilège pour sécuriser l'accès aux données sensibles.</p>
-							</div>
-						</div>
-					</div>
-
-					<div style="background-color: #f9f9f9; padding: 15px; margin: 15px 0; border-radius: 5px;">
-						<h4 style="color: #DD356E;">AC 3 : Sécuriser les services et données d'un système</h4>
-						<p><em>CE3.02 | en offrant une qualité de service optimale</em></p>
-
-						<div style="background-color: #f5f5f5; border: 1px solid #e3e3e3; border-radius: 5px; padding: 15px; margin-top: 15px;">
-							<h5><strong>Trace : SAE Poursuite d'études - Sécurisation des données étudiants</strong></h5>
-							<p>Pour le projet "SAE Poursuite d'études", j'ai implémenté des mesures de sécurité pour protéger les données sensibles des étudiants.</p>
-
-							<div style="background-color: #fff; border-left: 3px solid #DD356E; padding: 10px 15px; margin-top: 15px;">
-								<p>Dans ce projet, j'ai mis en œuvre plusieurs mécanismes pour sécuriser les données sensibles des étudiants tout en maintenant une qualité de service optimale. J'ai implémenté le chiffrement AES pour protéger les informations personnelles comme les adresses email et numéros de téléphone. J'ai également utilisé des requêtes préparées pour prévenir les injections SQL, mis en place un système de journalisation pour tracer les accès aux données, et configuré des règles d'autorisation strictes.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<!-- COMPÉTENCE GÉRER -->
-			<div class="row" style="margin-top: 40px; margin-bottom: 20px;">
-				<div class="col-md-12 text-left">
-					<h3 style="color: #D34F00FF; border-left: 4px solid #D34F00; padding-left: 10px;">Compétence 4 : Gérer</h3>
-					<p><strong>Niveau 2 :</strong> Optimiser une base de données, interagir avec une application et mettre en œuvre la sécurité</p>
-
-					<div style="background-color: #f9f9f9; padding: 15px; margin: 15px 0; border-radius: 5px;">
-						<h4 style="color: #DD356E;">AC 1 : Optimiser les modèles de données de l'entreprise</h4>
-						<p><em>CE4.03 | en s'appuyant sur des bases mathématiques</em></p>
-
-						<div style="background-color: #f5f5f5; border: 1px solid #e3e3e3; border-radius: 5px; padding: 15px; margin-top: 15px;">
-							<h5><strong>Trace : Stage Premium Water Distribution - Optimisation des requêtes SQL</strong></h5>
-							<p>Lors de mon stage chez Premium Water Distribution, j'ai optimisé les requêtes SQL du module d'exportation statistique pour améliorer les performances.</p>
-
-							<div style="background-color: #fff; border-left: 3px solid #DD356E; padding: 10px 15px; margin-top: 15px;">
-								<p>Pour ce projet professionnel, j'ai dû optimiser des requêtes SQL complexes qui analysaient de grandes quantités de données clients et commandes. J'ai appliqué des principes mathématiques d'optimisation et d'indexation pour améliorer significativement les temps de réponse. J'ai créé des index composites basés sur l'analyse des patterns de recherche fréquents, implémenté des jointures optimisées et utilisé des sous-requêtes corrélées pour réduire la charge sur le serveur de base de données.</p>
-							</div>
-						</div>
-					</div>
-
-					<div style="background-color: #f9f9f9; padding: 15px; margin: 15px 0; border-radius: 5px;">
-						<h4 style="color: #DD356E;">AC 2 : Assurer la confidentialité des données (intégrité et sécurité)</h4>
-						<p><em>CE4.01 | en respectant les réglementations sur le respect de la vie privée et la protection des données personnelles</em></p>
-
-						<div style="background-color: #f5f5f5; border: 1px solid #e3e3e3; border-radius: 5px; padding: 15px; margin-top: 15px;">
-							<h5><strong>Trace : Stage Premium Water Distribution - Conformité RGPD du module</strong></h5>
-							<p>Dans le cadre de mon stage, j'ai veillé à ce que le module d'exportation statistique respecte les normes RGPD pour la protection des données clients.</p>
-
-							<div style="background-color: #fff; border-left: 3px solid #DD356E; padding: 10px 15px; margin-top: 15px;">
-								<p>J'ai implémenté plusieurs mécanismes pour garantir la conformité RGPD du module d'exportation. Parmi ceux-ci : un système d'anonymisation des données sensibles lors de l'export, des contrôles d'accès stricts basés sur les rôles utilisateurs, un registre des activités de traitement pour suivre tous les exports effectués, et des fonctionnalités permettant d'exercer les droits d'accès, de rectification et d'effacement des données. J'ai également intégré un mécanisme de consentement explicite pour les traitements de données non essentiels.</p>
-							</div>
-						</div>
-					</div>
-
-					<div style="background-color: #f9f9f9; padding: 15px; margin: 15px 0; border-radius: 5px;">
-						<h4 style="color: #DD356E;">AC 3 : Organiser la restitution de données à travers la programmation et la visualisation</h4>
-						<p><em>CE4.02 | en assurant la cohérence et la qualité</em></p>
-
-						<div style="background-color: #f5f5f5; border: 1px solid #e3e3e3; border-radius: 5px; padding: 15px; margin-top: 15px;">
-							<h5><strong>Trace : Stage Premium Water Distribution - Tableaux de bord statistiques</strong></h5>
-							<p>Dans le cadre de mon stage, j'ai développé des tableaux de bord visuels pour présenter les statistiques de vente par région.</p>
-
-							<div style="background-color: #fff; border-left: 3px solid #DD356E; padding: 10px 15px; margin-top: 15px;">
-								<p>Ce projet m'a permis de développer mes compétences en visualisation de données dans un contexte professionnel. J'ai conçu et implémenté plusieurs types de visualisations (graphiques en barres, camemberts, cartes de chaleur géographiques) pour représenter les données de vente de manière claire et informative. J'ai veillé à la cohérence visuelle entre les différentes représentations et à l'exactitude des données affichées en mettant en place des processus de validation automatique. Les visualisations étaient interactives, permettant aux utilisateurs de filtrer et d'explorer les données selon différentes dimensions.</p>
-							</div>
-						</div>
-					</div>
-
-					<div style="background-color: #f9f9f9; padding: 15px; margin: 15px 0; border-radius: 5px;">
-						<h4 style="color: #DD356E;">AC 4 : Manipuler des données hétérogènes</h4>
-						<p><em>CE4.02 | en assurant la cohérence et la qualité</em></p>
-
-						<div style="background-color: #f5f5f5; border: 1px solid #e3e3e3; border-radius: 5px; padding: 15px; margin-top: 15px;">
-							<h5><strong>Trace : SAE E3C - Intégration de sources de données variées</strong></h5>
-							<p>Dans le cadre du projet "SAE E3C" (jeu de cartes "Set!"), j'ai développé un système capable de gérer et d'intégrer différents types de données (JSON, XML, CSV) pour alimenter l'application.</p>
-
-							<div style="background-color: #fff; border-left: 3px solid #DD356E; padding: 10px 15px; margin-top: 15px;">
-								<p>Ce projet m'a permis de développer des compétences essentielles dans la manipulation de données hétérogènes. J'ai conçu un système capable d'intégrer des données provenant de formats variés tout en garantissant la cohérence et la qualité du modèle de données unifié. J'ai mis en œuvre plusieurs techniques comme la validation structurelle des documents, la gestion des erreurs et des exceptions, la normalisation des valeurs et la vérification des contraintes d'intégrité.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<!-- COMPÉTENCE CONDUIRE -->
-			<div class="row" style="margin-top: 40px; margin-bottom: 20px;">
-				<div class="col-md-12 text-left">
-					<h3 style="color: #D34F00FF; border-left: 4px solid #D34F00; padding-left: 10px;">Compétence 5 : Conduire</h3>
-					<p><strong>Niveau 2 :</strong> Appliquer une démarche de suivi de projet en fonction des besoins métiers des clients et des utilisateurs</p>
-
-					<div style="background-color: #f9f9f9; padding: 15px; margin: 15px 0; border-radius: 5px;">
-						<h4 style="color: #DD356E;">AC 1 : Identifier les processus présents dans une organisation en vue d'améliorer les systèmes d'information</h4>
-						<p><em>CE5.01 | en communiquant efficacement avec les différents acteurs d'un projet</em></p>
-
-						<div style="background-color: #f5f5f5; border: 1px solid #e3e3e3; border-radius: 5px; padding: 15px; margin-top: 15px;">
-							<h5><strong>Trace : Stage Premium Water Distribution - Analyse des processus d'exportation</strong></h5>
-							<p>Durant mon stage, j'ai analysé les processus d'exportation et d'analyse de données existants pour identifier les améliorations possibles.</p>
-
-							<div style="background-color: #fff; border-left: 3px solid #DD356E; padding: 10px 15px; margin-top: 15px;">
-								<p>Cette analyse m'a permis de développer ma capacité à comprendre et cartographier les processus métier d'une organisation réelle. J'ai mené des entretiens avec différents utilisateurs (service marketing, comptabilité, direction) pour comprendre leurs besoins spécifiques en matière d'exportation et d'analyse de données. J'ai formalisé les processus existants à l'aide de diagrammes BPMN et identifié les goulots d'étranglement et les inefficacités. Cette communication efficace avec les parties prenantes a été cruciale pour concevoir un module répondant précisément à leurs attentes.</p>
-							</div>
-						</div>
-					</div>
-
-					<div style="background-color: #f9f9f9; padding: 15px; margin: 15px 0; border-radius: 5px;">
-						<h4 style="color: #DD356E;">AC 2 : Formaliser les besoins du client et de l'utilisateur</h4>
-						<p><em>CE5.02 | en respectant les règles juridiques et les normes en vigueur</em></p>
-
-						<div style="background-color: #f5f5f5; border: 1px solid #e3e3e3; border-radius: 5px; padding: 15px; margin-top: 15px;">
-							<h5><strong>Trace : Stage Premium Water Distribution - Cahier des charges du module</strong></h5>
-							<p>Pour mon stage, j'ai élaboré un cahier des charges complet détaillant les besoins fonctionnels et non-fonctionnels du module d'exportation statistique.</p>
-
-							<div style="background-color: #fff; border-left: 3px solid #DD356E; padding: 10px 15px; margin-top: 15px;">
-								<p>Cette expérience m'a permis de développer mes compétences en analyse et formalisation des besoins en contexte professionnel. J'ai utilisé plusieurs techniques comme les user stories, les maquettes d'interface et les diagrammes de cas d'utilisation pour documenter précisément les attentes des utilisateurs. J'ai également pris soin d'intégrer les contraintes juridiques liées au RGPD et à la protection des données personnelles, ainsi que les normes d'accessibilité web WCAG pour garantir que le module soit utilisable par tous les collaborateurs.</p>
-							</div>
-						</div>
-					</div>
-
-					<div style="background-color: #f9f9f9; padding: 15px; margin: 15px 0; border-radius: 5px;">
-						<h4 style="color: #DD356E;">AC 3 : Identifier les critères de faisabilité d'un projet informatique</h4>
-						<p><em>CE5.04 | en adoptant une démarche proactive, créative et critique</em></p>
-
-						<div style="background-color: #f5f5f5; border: 1px solid #e3e3e3; border-radius: 5px; padding: 15px; margin-top: 15px;">
-							<h5><strong>Trace : Projet E3C - Étude de faisabilité</strong></h5>
-							<p>Dans le cadre du projet "E3C", j'ai réalisé une étude de faisabilité pour évaluer la viabilité technique, économique et temporelle de notre solution.</p>
-
-							<div style="background-color: #fff; border-left: 3px solid #DD356E; padding: 10px 15px; margin-top: 15px;">
-								<p>Cette étude m'a permis de développer une approche méthodique pour évaluer la faisabilité des projets informatiques. J'ai analysé les contraintes techniques (technologies disponibles, compétences de l'équipe), les contraintes économiques (ressources nécessaires, coûts estimés) et les contraintes temporelles (planning, jalons critiques). J'ai adopté une démarche proactive en anticipant les risques potentiels et en proposant des solutions alternatives.</p>
-							</div>
-						</div>
-					</div>
-
-					<div style="background-color: #f9f9f9; padding: 15px; margin: 15px 0; border-radius: 5px;">
-						<h4 style="color: #DD356E;">AC 4 : Définir et mettre en œuvre une démarche de suivi de projet</h4>
-						<p><em>CE5.03 | en sensibilisant à une gestion éthique, responsable, durable et interculturelle</em></p>
-
-						<div style="background-color: #f5f5f5; border: 1px solid #e3e3e3; border-radius: 5px; padding: 15px; margin-top: 15px;">
-							<h5><strong>Trace : Stage Premium Water Distribution - Gestion du projet de développement</strong></h5>
-							<p>Durant mon stage, j'ai mis en place et suivi une méthodologie de gestion de projet adaptée pour le développement du module d'exportation statistique.</p>
-
-							<div style="background-color: #fff; border-left: 3px solid #DD356E; padding: 10px 15px; margin-top: 15px;">
-								<p>Cette expérience m'a permis de mettre en pratique une démarche de suivi de projet structurée dans un contexte professionnel. J'ai organisé le développement en sprints, établi un backlog de fonctionnalités priorisées avec le client, et mis en place des points d'avancement réguliers. J'ai utilisé des outils comme Trello pour le suivi des tâches et Git pour la gestion de versions. J'ai également veillé à intégrer des considérations éthiques et durables, notamment en optimisant le code pour réduire l'empreinte énergétique et en respectant les principes d'accessibilité numérique.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div id="projects" class="fh5co-blog" style="text-align: center;">
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2 class="title-effect section-title">Projets Réalisés</h2>
-					<p>Explorez quelques-uns de mes projets personnels et universitaires, illustrant mes compétences en développement logiciel, jeux vidéo, et intelligence artificielle.</p>
-				</div>
-			</div>
-
-			<!-- Première ligne de projets (2 côte à côte) -->
-			<div class="row">
-				<!-- Projet Stage -->
-				<div class="col-md-6">
-					<div class="fh5co-blog animate-box">
-						<img src="images/projets/premium-water.png" alt="Premium Water Distribution" class="project-image img-responsive" style="width: 200px; margin: 0 auto;">
-						<div class="blog-text">
-							<span class="posted_on">2025</span>
-							<h3>Module d'exportation statistique PrestaShop</h3>
-							<p>Durant mon stage chez Premium Water Distribution, j'ai développé un module d'exportation statistique pour PrestaShop permettant d'analyser et d'exporter des données clients et commandes avec des fonctionnalités avancées de filtrage et visualisation.</p>
-							<ul class="stuff">
-								<li><i class="icon-code"></i>PHP</li>
-								<li><i class="icon-database"></i>SQL</li>
-								<li><i class="icon-shop"></i>PrestaShop</li>
-								<li><a href="stage-premium-water.html">En savoir plus <i class="icon-arrow-right22"></i></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<!-- Projet 1 -->
-				<div class="col-md-6">
-					<div class="fh5co-blog animate-box">
-						<img src="images/projets/listeEtudiant-Copie.png" alt="SAE Poursuite d'études" class="project-image img-responsive">
-						<div class="blog-text">
-							<span class="posted_on">2024</span>
-							<h3>SAE Poursuite d'études</h3>
-							<p>Dans le cadre de ma deuxième année de BUT, j'ai participé à la création d'une application web permettant de suivre et gérer les parcours académiques des étudiants, avec une gestion de données avancée et une interface intuitive.</p>
-							<ul class="stuff">
-								<li><i class="icon-code"></i>PHP</li>
-								<li><i class="icon-database"></i>SQL</li>
-								<li><a href="SAE%20poursuite%20d'études.html">En savoir plus <i class="icon-arrow-right22"></i></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<!-- Deuxième ligne de projets (2 côte à côte) -->
-			<div class="row">
-				<!-- Projet 2 -->
-				<div class="col-md-6">
-					<div class="fh5co-blog animate-box">
-						<img src="images/projets/trainIHM-Copie.png" alt="SAE Trains" class="project-image img-responsive">
-						<div class="blog-text">
-							<span class="posted_on">2024</span>
-							<h3>SAE Trains</h3>
-							<p>Ce projet en binôme visait à créer une version numérique du jeu de société Trains, en utilisant Java et JavaFX pour gérer l'interface graphique et les mécanismes du jeu, tout en offrant une expérience multijoueur locale sur un même appareil.</p>
-							<ul class="stuff">
-								<li><i class="icon-code"></i>Java</li>
-								<li><i class="icon-gamepad"></i>JavaFX</li>
-								<li><a href="SAE%20trains.html">En savoir plus <i class="icon-arrow-right22"></i></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<!-- Projet 3 -->
-				<div class="col-md-6">
-					<div class="fh5co-blog animate-box">
-						<img src="images/projets/E3C-Copie.png" alt="SAE E3C" class="project-image img-responsive">
-						<div class="blog-text">
-							<span class="posted_on">2023-2024</span>
-							<h3>SAE E3C</h3>
-							<p>Développement d'une application Java permettant de jouer au jeu de cartes "Set!" en solo ou avec une IA. Cette application intègre des algorithmes avancés pour la détection des sets et propose un mode compétitif avec l'ordinateur.</p>
-							<ul class="stuff">
-								<li><i class="icon-code"></i>Java</li>
-								<li><i class="icon-code"></i>JavaFX</li>
-								<li><i class="icon-brain"></i>IA</li>
-								<li><a href="SAE%20E3C.html">En savoir plus <i class="icon-arrow-right22"></i></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<!-- Troisième ligne de projets (1 seul, centré) -->
-			<div class="row">
-				<!-- Projet 4 -->
-				<div class="col-md-6 col-md-offset-3">
-					<div class="fh5co-blog animate-box">
-						<img src="images/projets/sudoku-Copie.png" alt="SAE Sudoku" class="project-image img-responsive">
-						<div class="blog-text">
-							<span class="posted_on">2023</span>
-							<h3>SAE Sudoku</h3>
-							<p>Mon premier projet en BUT, consistant à recréer un jeu de Sudoku en Java où le joueur affronte une IA capable de résoudre des grilles complexes. Ce projet a permis d'explorer l'algorithmique de résolution de jeux et l'intelligence artificielle de manière pratique.</p>
-							<ul class="stuff">
-								<li><i class="icon-code"></i>Java</li>
-								<li><i class="icon-brain"></i>IA</li>
-								<li><a href="SAE%20Sudoku.html">En savoir plus <i class="icon-arrow-right22"></i></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
-
-
-
-</div>
-
-<div id="skills" class="text-center" style="padding: 20px 0;">
-	<div class="container">
-		<div class="row animate-box">
-			<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-				<h2 class="title-effect section-title" style="color: #d34f00">Compétences</h2>
-				<p style="color: #ae6f00">Voici un aperçu de mes compétences techniques et des langages de programmation que je maîtrise.</p>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-6">
-				<h3 style="color: #D34F00FF">Développement Web</h3>
-				<ul class="skills-list text-left">
-					<li>HTML/CSS
-						<div class="progress">
-							<div class="progress-bar" style="width: 90%; background-color: #DD356E;"></div>
-						</div>
-					</li>
-					<li>JavaScript
-						<div class="progress">
-							<div class="progress-bar" style="width: 60%; background-color: #DD356E;"></div>
-						</div>
-					</li>
-					<li>PHP
-						<div class="progress">
-							<div class="progress-bar" style="width: 80%; background-color: #DD356E;"></div>
-						</div>
-					</li>
-					<li>SQL
-						<div class="progress">
-							<div class="progress-bar" style="width: 70%; background-color: #DD356E;"></div>
-						</div>
-					</li>
-				</ul>
-			</div>
-			<div class="col-md-6">
-				<h3 style="color: #D34F00FF">Autres Compétences</h3>
-				<ul class="skills-list text-left">
-					<li>Java
-						<div class="progress">
-							<div class="progress-bar" style="width: 90%; background-color: #DD356E;"></div>
-						</div>
-					</li>
-					<li>Python
-						<div class="progress">
-							<div class="progress-bar" style="width: 70%; background-color: #DD356E;"></div>
-						</div>
-					</li>
-					<li>C
-						<div class="progress">
-							<div class="progress-bar" style="width: 60%; background-color: #DD356E;"></div>
-						</div>
-					</li>
-					<li>Bash
-						<div class="progress">
-							<div class="progress-bar" style="width: 60%; background-color: #DD356E;"></div>
-						</div>
-					</li>
-					<li>GIT/Github
-						<div class="progress">
-							<div class="progress-bar" style="width: 90%; background-color: #DD356E;"></div>
-						</div>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div id="experience" class="text-center" style=" padding: 20px 0;">
-	<div class="fh5co-wireframe">
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2 class="title-effect section-title" style="color: white">Expérience Professionnelle</h2>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12 animate-box">
-					<div class="experience-section">
-						<div class="experience-item">
-							<h3 class="experience-title">Développeur Web - Premium Water Distribution</h3>
-							<div class="experience-details">2025 - Stage de 2ème année</div>
-							<p class="experience-description">Développement d'un module d'exportation statistique pour PrestaShop, optimisation des requêtes SQL, création d'interfaces utilisateur ergonomiques, implémentation de fonctionnalités avancées d'analyse de données clients et commandes.</p>
-						</div>
-
-						<div class="experience-item">
-							<h3 class="experience-title">Caissier - Monoprix</h3>
-							<div class="experience-details">2024 - Sète</div>
-							<p class="experience-description">Gestion de caisse, relation client, résolution de problèmes en temps réel</p>
-						</div>
-
-						<div class="experience-item">
-							<h3 class="experience-title">Magasinier e-commerce - Berkey France Millenium</h3>
-							<div class="experience-details">2022 - National</div>
-							<p class="experience-description">Gestion des stocks et des livraisons en ligne</p>
-						</div>
-
-						<div class="experience-item">
-							<h3 class="experience-title">Vendeur - Fleurons de Lomagne</h3>
-							<div class="experience-details">2019 - Lectoure</div>
-							<p class="experience-description">Vente en boutique/épicerie fine, conseil client</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-	<div class="text-center" style=" padding: 20px 0;">
-	<div id="contact" class="fh5co-contact">
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center">
-					<h2 class="title-effect section-title">Me Contacter</h2>
-				</div>
-			</div>
-			<div class="row">
-				<div class="contact-section">
-					<div class="contact-info">
-						<h3>Informations de Contact</h3>
-						<ul>
-							<li><i class="icon-location2"></i>17 Rue Ribot, 34200 Sète</li>
-							<li><i class="icon-phone2"></i><a href="tel://33646180906">+33 6 46 18 09 06</a></li>
-							<li><i class="icon-mail"></i><a href="mailto:sacha.doublet1@gmail.com">sacha.doublet1@gmail.com</a></li>
-							<li><i class="icon-linkedin2"></i><a href="https://linkedin.com/in/sacha-doublet-5366aa2aa">LinkedIn</a></li>
-							<li><i class="icon-github"></i><a href="https://github.com/sachadblt">GitHub</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<footer id="fh5co-footer" class="footer">
+<section class="portfolio" id="portfolio">
     <div class="container">
-        <div class="footer-content">
-            <!-- Copyright -->
-            <div class="copyright">
-                <p class="title-effect">&copy; 2025 Sacha DOUBLET<span class="dot">.</span> Tous droits réservés</p>
+        <div class="section-header">
+            <span class="section-number">03</span>
+            <h2 class="section-title">Projets Réalisés</h2>
+        </div>
+
+        <div class="projects-grid">
+            <article class="project-card" data-category="sae">
+                <div class="project-image">
+                    <img src="images/projets/wavy-Copie.png" alt="Wavy Ecosystème">
+                    <div class="project-overlay">
+                        <span class="project-category">SAE / Mobile</span>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <span class="project-year">2025</span>
+                    <h3>Wavy - Météo marine</h3>
+                    <p>Application Web, Mobile et Montre connectée agrégeant 8 APIs (Météo, Stripe, News...) pour les sports nautiques.</p>
+                    <div class="project-tags">
+                        <span>Symfony</span>
+                        <span>React Native</span>
+                        <span>API Rest</span>
+                    </div>
+                    <a href="SAE%20Wavy.html" class="project-link">Voir le projet →</a>
+                </div>
+            </article>
+
+            <article class="project-card" data-category="stage">
+                <div class="project-image">
+                    <img src="images/projets/premium-water.png" alt="Premium Water Distribution">
+                    <div class="project-overlay">
+                        <span class="project-category">Stage</span>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <span class="project-year">2025</span>
+                    <h3>Module d'exportation PrestaShop</h3>
+                    <p>Développement d'un module d'exportation statistique pour PrestaShop avec fonctionnalités avancées de filtrage et visualisation.</p>
+                    <div class="project-tags">
+                        <span>PHP</span>
+                        <span>SQL</span>
+                        <span>PrestaShop</span>
+                    </div>
+                    <a href="stage-premium-water.html" class="project-link">En savoir plus →</a>
+                </div>
+            </article>
+
+            <article class="project-card" data-category="web">
+                <div class="project-image">
+                    <img src="images/projets/listeEtudiant-Copie.png" alt="SAE Poursuite d'études">
+                    <div class="project-overlay">
+                        <span class="project-category">Web App</span>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <span class="project-year">2024</span>
+                    <h3>SAE Poursuite d'études</h3>
+                    <p>Application web de suivi et gestion des parcours académiques avec gestion de données avancée.</p>
+                    <div class="project-tags">
+                        <span>PHP</span>
+                        <span>SQL</span>
+                    </div>
+                    <a href="SAE%20poursuite%20d'études.html" class="project-link">En savoir plus →</a>
+                </div>
+            </article>
+
+            <article class="project-card" data-category="game">
+                <div class="project-image">
+                    <img src="images/projets/trainIHM-Copie.png" alt="SAE Trains">
+                    <div class="project-overlay">
+                        <span class="project-category">Jeu</span>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <span class="project-year">2024</span>
+                    <h3>SAE Trains</h3>
+                    <p>Version numérique du jeu de société Trains avec interface graphique et multijoueur local.</p>
+                    <div class="project-tags">
+                        <span>Java</span>
+                        <span>JavaFX</span>
+                    </div>
+                    <a href="SAE%20trains.html" class="project-link">En savoir plus →</a>
+                </div>
+            </article>
+
+            <article class="project-card" data-category="game">
+                <div class="project-image">
+                    <img src="images/projets/E3C-Copie.png" alt="SAE E3C">
+                    <div class="project-overlay">
+                        <span class="project-category">Jeu & IA</span>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <span class="project-year">2023-2024</span>
+                    <h3>SAE E3C - Jeu "Set!"</h3>
+                    <p>Application de jeu de cartes avec IA pour la détection automatique des sets.</p>
+                    <div class="project-tags">
+                        <span>Java</span>
+                        <span>JavaFX</span>
+                        <span>IA</span>
+                    </div>
+                    <a href="SAE%20E3C.html" class="project-link">En savoir plus →</a>
+                </div>
+            </article>
+
+            <article class="project-card" data-category="game">
+                <div class="project-image">
+                    <img src="images/projets/sudoku-Copie.png" alt="SAE Sudoku">
+                    <div class="project-overlay">
+                        <span class="project-category">Jeu & IA</span>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <span class="project-year">2023</span>
+                    <h3>SAE Sudoku</h3>
+                    <p>Jeu de Sudoku avec IA capable de résoudre des grilles complexes.</p>
+                    <div class="project-tags">
+                        <span>Java</span>
+                        <span>IA</span>
+                    </div>
+                    <a href="SAE%20Sudoku.html" class="project-link">En savoir plus →</a>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="experience" id="experience">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-number">04</span>
+            <h2 class="section-title">Expérience Professionnelle</h2>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <span class="timeline-year">2025</span>
+                    <h3>Développeur Web</h3>
+                    <h4>Premium Water Distribution - Stage</h4>
+                    <p>Développement d'un module d'exportation statistique pour PrestaShop, optimisation des requêtes SQL, création d'interfaces utilisateur ergonomiques.</p>
+                </div>
             </div>
 
-            <!-- Social Links -->
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/sacha-doublet-5366aa2aa" target="_blank" class="social-link">
-                    <i class="icon-linkedin2"></i>
-                </a>
-                <a href="https://github.com/sachadblt" target="_blank" class="social-link">
-                    <i class="icon-github"></i>
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <span class="timeline-year">2024</span>
+                    <h3>Caissier</h3>
+                    <h4>Monoprix - Sète</h4>
+                    <p>Gestion de caisse, relation client, résolution de problèmes en temps réel.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <span class="timeline-year">2022</span>
+                    <h3>Magasinier e-commerce</h3>
+                    <h4>Berkey France Millenium</h4>
+                    <p>Gestion des stocks et des livraisons en ligne.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <span class="timeline-year">2019</span>
+                    <h3>Vendeur</h3>
+                    <h4>Fleurons de Lomagne - Lectoure</h4>
+                    <p>Vente en boutique/épicerie fine, conseil client.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-number">05</span>
+            <h2 class="section-title">Restons en Contact</h2>
+        </div>
+
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <h4>Localisation</h4>
+                        <p>17 Rue Ribot, 34200 Sète</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div>
+                        <h4>Email</h4>
+                        <a href="mailto:sacha.doublet1@gmail.com">sacha.doublet1@gmail.com</a>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <div>
+                        <h4>Téléphone</h4>
+                        <a href="tel:+33646180906">+33 6 46 18 09 06</a>
+                    </div>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/sacha-doublet-5366aa2aa" target="_blank" class="social-link">
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/sachadblt" target="_blank" class="social-link">
+                        <span>GitHub</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact-cta">
+                <h3>Prêt à collaborer ?</h3>
+                <p>Je suis toujours ouvert aux nouvelles opportunités et projets passionnants.</p>
+                <a href="mailto:sacha.doublet1@gmail.com" class="btn btn-primary btn-large">
+                    <span>Envoyer un message</span>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
                 </a>
             </div>
         </div>
     </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <p>&copy; 2025 Sacha DOUBLET. Tous droits réservés.</p>
+            <p class="footer-tagline">Conçu avec ❤️ et beaucoup de ☕</p>
+        </div>
+    </div>
 </footer>
-</div>
 
-<div class="gototop js-top">
-	<a href="#" class="js-gotop"><i class="icon-arrow-up22"></i></a>
-</div>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<script>
-	$(document).ready(function() {
-		// Smooth scroll to anchor links
-		$('a[href^="#"]').on('click', function(event) {
-			event.preventDefault();
-
-			var target = $(this.getAttribute('href'));
-			if (target.length) {
-				$('html, body').animate({
-					scrollTop: target.offset().top
-				}, 500);
-			}
-		});
-	});
-</script>
-<!-- Scripts -->
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery.easing.1.3.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.waypoints.min.js"></script>
-<script src="js/jquery.flexslider-min.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

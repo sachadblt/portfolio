@@ -56,41 +56,29 @@ a {
 
 /* ===== CURSEUR PERSONNALISÉ ===== */
 #cursor {
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--primary);
-    border-radius: 50%;
     position: fixed;
-    pointer-events: none;
     z-index: 9999;
-    transition: all 0.1s ease;
-    mix-blend-mode: difference;
+    pointer-events: none; /* Important : permet de cliquer au travers */
     transform: translate(-50%, -50%);
+    transition: transform 0.1s ease, color 0.3s ease;
+    /* On s'assure que le conteneur n'a pas de style parasite */
+    border: none;
+    border-radius: 0;
+    background: none;
+    /* Centre le SVG à l'intérieur */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+/* On supprime les anciens styles qui pouvaient créer des conflits */
 #cursor-follower {
-    width: 40px;
-    height: 40px;
-    border: 1px solid var(--accent);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 9998;
-    transition: all 0.3s ease;
-    mix-blend-mode: difference;
-    transform: translate(-50%, -50%);
+    display: none;
 }
 
-/* AJOUT : Style du curseur en mode clair */
 body.light-theme #cursor,
 body.light-theme #cursor-follower {
     mix-blend-mode: normal;
-}
-body.light-theme #cursor {
-    border-color: var(--primary);
-}
-body.light-theme #cursor-follower {
-    border-color: var(--secondary);
 }
 
 
@@ -1153,4 +1141,49 @@ body.light-theme .footer {
     .theme-toggle-btn {
         margin-right: 1rem;
     }
+}
+
+/* Cache la souris par défaut SEULEMENT sur PC si tu veux que l'étoile remplace la souris */
+@media (min-width: 769px) {
+    body, a, button {
+        cursor: none; /* Cache la souris système */
+    }
+}
+
+/* Le style de l'étoile est géré par le JS, mais tu peux ajouter ceci par sécurité */
+#cursor {
+    pointer-events: none; /* TRÈS IMPORTANT : Permet de cliquer à travers l'étoile */
+    position: fixed;
+    z-index: 9999;
+}
+
+/* ===== CURSEUR ÉTOILE ===== */
+#cursor {
+    position: fixed;
+    z-index: 9999;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    /* Transition juste pour l'effet de survol (agrandissement) */
+    transition: transform 0.1s ease;
+    /* On retire la transition de couleur pour éviter les bugs avec le JS */
+}
+
+/* ===== TRAÎNÉE CONTINUE (SVG) ===== */
+.trail-svg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9998; /* Derrière l'étoile */
+}
+
+.trail-path {
+    fill: none;
+    stroke-linecap: round; /* Extrémités arrondies */
+    stroke-linejoin: round; /* Coins arrondis */
+    /* L'épaisseur et la couleur sont gérées par le JS */
+    /* La transition sert à faire disparaître le trait */
+    transition: stroke-dashoffset 0.5s ease-out;
 }

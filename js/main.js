@@ -1,267 +1,327 @@
-;(function () {
-	
-	'use strict';
+/* =========================================
+   1. GESTION DU CURSEUR & TRAÎNÉE CONTINUE
+   ========================================= */
+const cursor = document.getElementById('cursor');
+const cursorFollower = document.getElementById('cursor-follower');
 
-	var isMobile = {
-		Android: function() {
-			return navigator.userAgent.match(/Android/i);
-		},
-			BlackBerry: function() {
-			return navigator.userAgent.match(/BlackBerry/i);
-		},
-			iOS: function() {
-			return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-		},
-			Opera: function() {
-			return navigator.userAgent.match(/Opera Mini/i);
-		},
-			Windows: function() {
-			return navigator.userAgent.match(/IEMobile/i);
-		},
-			any: function() {
-			return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-		}
-	};
+// Configuration
+const COLORS = { light: '#7b5de0', dark: '#f9d554' };
+const TRAIL_LENGTH = 20;
+const TRAIL_WIDTH = 8;
 
-	var mobileMenuOutsideClick = function() {
+let currentCursorColor = COLORS.dark;
+let trailPoints = [];
+let isMoving = false;
+let trailPath = null;
+let movementTimer = null;
 
-		$(document).click(function (e) {
-	    var container = $("#fh5co-offcanvas, .js-fh5co-nav-toggle");
-	    if (!container.is(e.target) && container.has(e.target).length === 0) {
+// Nettoyage ancien curseur
+if (cursorFollower) cursorFollower.remove();
 
-	    	if ( $('body').hasClass('offcanvas') ) {
+// --- Initialisation Curseur ---
+function initCursorSystem() {
+    if (cursor) {
+        cursor.innerHTML = `
+            <svg viewBox="0 0 24 24" width="24" height="24" style="overflow: visible;">
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="currentColor"/>
+            </svg>
+        `;
+        cursor.style.color = currentCursorColor;
+    }
 
-    			$('body').removeClass('offcanvas');
-    			$('.js-fh5co-nav-toggle').removeClass('active');
-				
-	    	}
-	    
-	    	
-	    }
-		});
+    const svgNS = "http://www.w3.org/2000/svg";
+    const svg = document.createElementNS(svgNS, "svg");
+    svg.classList.add('trail-svg');
+    svg.style.position = 'fixed';
+    svg.style.top = '0';
+    svg.style.left = '0';
+    svg.style.width = '100%';
+    svg.style.height = '100%';
+    svg.style.pointerEvents = 'none';
+    svg.style.zIndex = '9998';
 
-	};
+    trailPath = document.createElementNS(svgNS, "path");
+    trailPath.classList.add('trail-path');
+    trailPath.setAttribute("stroke-width", TRAIL_WIDTH);
+    trailPath.setAttribute("stroke", currentCursorColor);
+    trailPath.setAttribute("fill", "none");
+    trailPath.setAttribute("stroke-linecap", "round");
+    trailPath.setAttribute("stroke-linejoin", "round");
 
+    svg.appendChild(trailPath);
+    document.body.appendChild(svg);
 
-	var offcanvasMenu = function() {
+    requestAnimationFrame(renderTrail);
+}
 
-		$('#page').prepend('<div id="fh5co-offcanvas" />');
-		$('#page').prepend('<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle fh5co-nav-white"><i></i></a>');
-		var clone1 = $('.menu-1 > ul').clone();
-		$('#fh5co-offcanvas').append(clone1);
-		var clone2 = $('.menu-2 > ul').clone();
-		$('#fh5co-offcanvas').append(clone2);
+initCursorSystem();
 
-		$('#fh5co-offcanvas .has-dropdown').addClass('offcanvas-has-dropdown');
-		$('#fh5co-offcanvas')
-			.find('li')
-			.removeClass('has-dropdown');
+// --- Gestion des Mouvements ---
+document.addEventListener('mousemove', (e) => {
+    const x = e.clientX;
+    const y = e.clientY;
 
-		// Hover dropdown menu on mobile
-		$('.offcanvas-has-dropdown').mouseenter(function(){
-			var $this = $(this);
+    isMoving = true;
 
-			$this
-				.addClass('active')
-				.find('ul')
-				.slideDown(500, 'easeOutExpo');				
-		}).mouseleave(function(){
+    if (cursor) {
+        cursor.style.left = x + 'px';
+        cursor.style.top = y + 'px';
+    }
 
-			var $this = $(this);
-			$this
-				.removeClass('active')
-				.find('ul')
-				.slideUp(500, 'easeOutExpo');				
-		});
+    trailPoints.unshift({ x, y });
 
+    clearTimeout(movementTimer);
+    movementTimer = setTimeout(() => {
+        isMoving = false;
+    }, 50);
+});
 
-		$(window).resize(function(){
+// --- Boucle de rendu Curseur ---
+function renderTrail() {
+    if (trailPoints.length > TRAIL_LENGTH) {
+        trailPoints.pop();
+    }
 
-			if ( $('body').hasClass('offcanvas') ) {
+    if (!isMoving && trailPoints.length > 0) {
+        trailPoints.pop();
+    }
 
-    			$('body').removeClass('offcanvas');
-    			$('.js-fh5co-nav-toggle').removeClass('active');
-				
-	    	}
-		});
-	};
+    if (trailPoints.length > 1 && trailPath) {
+        let d = `M ${trailPoints[0].x} ${trailPoints[0].y}`;
+        for (let i = 1; i < trailPoints.length; i++) {
+            d += ` L ${trailPoints[i].x} ${trailPoints[i].y}`;
+        }
+        trailPath.setAttribute("d", d);
+        trailPath.setAttribute("stroke", currentCursorColor);
+    } else if (trailPath) {
+        trailPath.setAttribute("d", "");
+    }
 
+    requestAnimationFrame(renderTrail);
+}
 
-	var burgerMenu = function() {
+// --- Gestion Mobile & Resize ---
+function handleResize() {
+    if (isMobileDevice()) {
+        if (cursor) cursor.style.display = 'none';
+        if (trailPath && trailPath.parentNode) trailPath.parentNode.style.display = 'none';
+        document.body.style.cursor = 'auto';
+    } else {
+        if (cursor) cursor.style.display = 'block';
+        if (trailPath && trailPath.parentNode) trailPath.parentNode.style.display = 'block';
+    }
+}
 
-		$('body').on('click', '.js-fh5co-nav-toggle', function(event){
-			var $this = $(this);
+function isMobileDevice() {
+    return window.matchMedia("(max-width: 768px)").matches;
+}
 
+window.addEventListener('resize', handleResize);
+handleResize();
 
-			if ( $('body').hasClass('overflow offcanvas') ) {
-				$('body').removeClass('overflow offcanvas');
-			} else {
-				$('body').addClass('overflow offcanvas');
-			}
-			$this.toggleClass('active');
-			event.preventDefault();
+// --- Effets Interactifs ---
+document.querySelectorAll('a, button, .btn, input, textarea, .theme-toggle-btn').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+        if (cursor) cursor.style.transform = 'translate(-50%, -50%) scale(1.5) rotate(72deg)';
+    });
+    el.addEventListener('mouseleave', () => {
+        if (cursor) cursor.style.transform = 'translate(-50%, -50%) scale(1) rotate(0deg)';
+    });
+});
 
-		});
-	};
+/* =========================================
+   2. GESTION DU THÈME
+   ========================================= */
+const themeToggle = document.querySelector('.theme-toggle-btn');
+const body = document.body;
+const themeKey = 'sacha-portfolio-theme';
 
-	var fullHeight = function() {
+function applyTheme(theme) {
+    if (theme === 'light') {
+        body.classList.add('light-theme');
+        currentCursorColor = COLORS.light;
+    } else {
+        body.classList.remove('light-theme');
+        currentCursorColor = COLORS.dark;
+    }
 
-		if ( !isMobile.any() ) {
-			$('.js-fullheight').css('height', $(window).height());
-			$(window).resize(function(){
-				$('.js-fullheight').css('height', $(window).height());
-			});
-		}
+    if (cursor) cursor.style.color = currentCursorColor;
+    if (trailPath) trailPath.setAttribute("stroke", currentCursorColor);
+}
 
-	};
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        let currentTheme = body.classList.contains('light-theme') ? 'light' : 'dark';
+        let newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        applyTheme(newTheme);
+        localStorage.setItem(themeKey, newTheme);
+    });
+}
 
+const savedTheme = localStorage.getItem(themeKey);
+if (savedTheme) applyTheme(savedTheme);
+else applyTheme('dark');
 
+/* =========================================
+   3. ANIMATION DES CHIFFRES (C'est ce qui manquait !)
+   ========================================= */
+const statObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const statNumber = entry.target;
+            // On récupère le chiffre cible (ex: 10)
+            const target = parseInt(statNumber.getAttribute('data-target'));
 
-	var contentWayPoint = function() {
-		var i = 0;
-		$('.animate-box').waypoint( function( direction ) {
+            // Si pas de cible, on arrête
+            if (!target) return;
 
-			if( direction === 'down' && !$(this.element).hasClass('animated-fast') ) {
-				
-				i++;
+            let count = 0;
+            // Vitesse : on divise la cible par 30 étapes
+            const increment = target / 30;
 
-				$(this.element).addClass('item-animate');
-				setTimeout(function(){
+            const updateCount = () => {
+                if (count < target) {
+                    count += increment;
+                    // On s'assure de ne pas dépasser la cible
+                    if(count > target) count = target;
+                    statNumber.textContent = Math.ceil(count);
+                    requestAnimationFrame(updateCount);
+                } else {
+                    statNumber.textContent = target;
+                }
+            };
 
-					$('body .animate-box.item-animate').each(function(k){
-						var el = $(this);
-						setTimeout( function () {
-							var effect = el.data('animate-effect');
-							if ( effect === 'fadeIn') {
-								el.addClass('fadeIn animated-fast');
-							} else if ( effect === 'fadeInLeft') {
-								el.addClass('fadeInLeft animated-fast');
-							} else if ( effect === 'fadeInRight') {
-								el.addClass('fadeInRight animated-fast');
-							} else {
-								el.addClass('fadeInUp animated-fast');
-							}
+            updateCount();
+            statObserver.unobserve(statNumber);
+        }
+    });
+}, { threshold: 0.5 }); // L'animation se lance quand 50% de l'élément est visible
 
-							el.removeClass('item-animate');
-						},  k * 200, 'easeInOutExpo' );
-					});
-					
-				}, 100);
-				
-			}
+// On applique l'observateur à tous les nombres
+document.querySelectorAll('.stat-number').forEach(stat => {
+    statObserver.observe(stat);
+});
 
-		} , { offset: '85%' } );
-	};
+/* =========================================
+   4. NAVIGATION & MENU BURGER
+   ========================================= */
+const navbar = document.querySelector('nav');
+const burger = document.querySelector('.burger');
+const navLinks = document.querySelector('.nav-links');
+const navItems = document.querySelectorAll('.nav-links a');
 
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) navbar.classList.add('scrolled');
+    else navbar.classList.remove('scrolled');
+});
 
-	var dropdown = function() {
+if (burger) {
+    burger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        burger.classList.toggle('active');
+        const spans = burger.querySelectorAll('span');
+        if (burger.classList.contains('active')) {
+            spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+            spans[1].style.opacity = '0';
+            spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+        } else {
+            spans[0].style.transform = 'none';
+            spans[1].style.opacity = '1';
+            spans[2].style.transform = 'none';
+        }
+    });
+}
 
-		$('.has-dropdown').mouseenter(function(){
+navItems.forEach(item => {
+    item.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        if (burger) {
+            burger.classList.remove('active');
+            const spans = burger.querySelectorAll('span');
+            spans[0].style.transform = 'none';
+            spans[1].style.opacity = '1';
+            spans[2].style.transform = 'none';
+        }
+    });
+});
 
-			var $this = $(this);
-			$this
-				.find('.dropdown')
-				.css('display', 'block')
-				.addClass('animated-fast fadeInUpMenu');
+/* =========================================
+   5. TEXTE TYPING
+   ========================================= */
+const typingText = document.querySelector('.typing-text');
+const texts = ['Développeur Full-Stack', 'Passionné de Design', 'Créateur Web'];
+let textIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
 
-		}).mouseleave(function(){
-			var $this = $(this);
+function type() {
+    if (!typingText) return;
+    const currentText = texts[textIndex];
+    let typeSpeed = 100;
 
-			$this
-				.find('.dropdown')
-				.css('display', 'none')
-				.removeClass('animated-fast fadeInUpMenu');
-		});
+    if (isDeleting) {
+        typingText.textContent = currentText.substring(0, charIndex - 1);
+        charIndex--;
+        typeSpeed = 50;
+    } else {
+        typingText.textContent = currentText.substring(0, charIndex + 1);
+        charIndex++;
+    }
 
-	};
+    if (!isDeleting && charIndex === currentText.length) {
+        isDeleting = true;
+        typeSpeed = 2000;
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        textIndex = (textIndex + 1) % texts.length;
+        typeSpeed = 500;
+    }
+    setTimeout(type, typeSpeed);
+}
+setTimeout(type, 1000);
 
+/* =========================================
+   6. ANIMATIONS AU SCROLL
+   ========================================= */
+const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+            const progressBar = entry.target.querySelector('.skill-progress');
+            if (progressBar) progressBar.style.width = progressBar.getAttribute('data-width') || progressBar.style.width;
+            fadeObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1 });
 
-	var goToTop = function() {
+document.querySelectorAll('.project-card, .skill-item, .timeline-item, .feature-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+    fadeObserver.observe(el);
+});
 
-		$('.js-gotop').on('click', function(event){
-			
-			event.preventDefault();
+/* =========================================
+   7. SMOOTH SCROLL & PARALLAX
+   ========================================= */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            window.scrollTo({
+                top: target.offsetTop - 80,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
 
-			$('html, body').animate({
-				scrollTop: $('html').offset().top
-			}, 500, 'easeInOutExpo');
-			
-			return false;
-		});
-
-		$(window).scroll(function(){
-
-			var $win = $(window);
-			if ($win.scrollTop() > 200) {
-				$('.js-top').addClass('active');
-			} else {
-				$('.js-top').removeClass('active');
-			}
-
-		});
-	
-	};
-
-
-	// Loading page
-	var loaderPage = function() {
-		$(".fh5co-loader").fadeOut("slow");
-	};
-
-
-	var counterWayPoint = function() {
-		if ($('#fh5co-counter').length > 0 ) {
-			$('#fh5co-counter').waypoint( function( direction ) {
-										
-				if( direction === 'down' && !$(this.element).hasClass('animated') ) {
-					setTimeout( counter , 400);					
-					$(this.element).addClass('animated');
-				}
-			} , { offset: '90%' } );
-		}
-	};
-
-	var sliderMain = function() {
-		
-	  	$('#fh5co-hero .flexslider').flexslider({
-			animation: "fade",
-			slideshowSpeed: 5000,
-			directionNav: true,
-			start: function(){
-				setTimeout(function(){
-					$('.slider-text').removeClass('animated fadeInUp');
-					$('.flex-active-slide').find('.slider-text').addClass('animated fadeInUp');
-				}, 500);
-			},
-			before: function(){
-				setTimeout(function(){
-					$('.slider-text').removeClass('animated fadeInUp');
-					$('.flex-active-slide').find('.slider-text').addClass('animated fadeInUp');
-				}, 500);
-			}
-
-	  	});
-
-	  	$('#fh5co-hero .flexslider .slides > li').css('height', $(window).height());	
-	  	$(window).resize(function(){
-	  		$('#fh5co-hero .flexslider .slides > li').css('height', $(window).height());	
-	  	});
-
-	};
-
-	
-	$(function(){
-		mobileMenuOutsideClick();
-		offcanvasMenu();
-		burgerMenu();
-		contentWayPoint();
-		sliderMain();
-		dropdown();
-		goToTop();
-		loaderPage();
-		counterWayPoint();
-		fullHeight();
-	});
-
-
-}());
+window.addEventListener('scroll', () => {
+    const scrollY = window.pageYOffset;
+    document.querySelectorAll('.shape').forEach((shape, index) => {
+        const speed = (index + 1) * 0.1;
+        shape.style.transform = `translateY(${scrollY * speed}px)`;
+    });
+});

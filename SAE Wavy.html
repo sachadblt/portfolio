@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet Wavy - Météo marine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/ico" href="images/favicon.ico">
+</head>
+<body>
+
+<style>
+    .hero-image-wrapper {
+        width: 100%;
+        max-width: 700px;
+        height: auto;
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        overflow: hidden;
+    }
+
+    /* Style spécifique pour la liste des APIs */
+    .api-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .api-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        padding: 1.5rem;
+        border-radius: 12px;
+        transition: transform 0.3s ease;
+    }
+
+    .api-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--primary-color); /* Assure-toi que cette variable existe, sinon met une couleur hex */
+    }
+
+    .api-category {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .api-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .api-list li {
+        color: var(--gray-light);
+        font-size: 0.9rem;
+        margin-bottom: 0.3rem;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .badge-rn {
+        background: #61dafb; /* React Color */
+        color: #000;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        font-weight: bold;
+    }
+</style>
+
+<div id="cursor"></div>
+<div id="cursor-follower"></div>
+
+<nav id="navbar">
+    <div class="logo">SACHA<span class="dot">.</span></div>
+    <ul class="nav-links">
+        <li><a href="index.html#home">Accueil</a></li>
+        <li><a href="index.html#about">À propos</a></li>
+        <li><a href="index.html#skills">Compétences</a></li>
+        <li><a href="index.html#portfolio">Portfolio</a></li>
+        <li><a href="index.html#experience">Expérience</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+
+    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Changer de thème">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
+    </button>
+
+    <div class="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-bg">
+        <div class="grid-overlay"></div>
+    </div>
+    <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+    <div class="hero-content">
+        <div class="hero-image-wrapper">
+            <img src="images/projets/wavy.png" alt="Écosystème Wavy : Web, Mobile et Watch">
+        </div>
+        <div class="glitch-wrapper">
+            <h1 class="glitch">L'Écosystème Wavy</h1>
+        </div>
+        <p class="hero-subtitle">Plateforme Météo Marine Cross-Platform (Web, Mobile, Watch)</p>
+    </div>
+</section>
+
+<section class="about">
+    <div class="container">
+
+        <section style="margin-bottom: 4rem;">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2 class="section-title">Le Concept</h2>
+            </div>
+            <p style="color: var(--gray-light); font-size: 1.1rem; max-width: 800px; margin: 0 auto;">
+                Wavy n'est pas simplement un site web, c'est une <strong>suite complète</strong> dédiée aux passionnés de la mer. L'objectif est d'accompagner l'utilisateur à chaque étape : la planification sur l'application Web, la consultation rapide sur Mobile, et le suivi en temps réel des conditions (vagues, vent) directement au poignet via une application pour montres connectées.
+            </p>
+        </section>
+
+        <section style="margin-bottom: 4rem;">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2 class="section-title">Orchestration des APIs</h2>
+            </div>
+            <p style="color: var(--gray-light); font-size: 1.1rem; max-width: 800px; margin: 0 auto 2rem auto;">
+                Le cœur de Wavy repose sur l'agrégation complexe de données provenant de 8 services externes différents, harmonisés via notre backend Symfony.
+            </p>
+
+            <div class="api-grid">
+                <div class="api-card">
+                    <div class="api-category">☁️ Météo & Océan</div>
+                    <ul class="api-list">
+                        <li><strong>Open-Meteo</strong> <span>Prévisions</span></li>
+                        <li>Modele AROME <span>France Haute Précision</span></li>
+                        <li>Modèle GFS <span>Global</span></li>
+                        <li>Marine API <span>Houle & Température</span></li>
+                    </ul>
+                </div>
+
+                <div class="api-card">
+                    <div class="api-category">📍 Géolocalisation</div>
+                    <ul class="api-list">
+                        <li><strong>Nominatim (OSM)</strong> <span>Géocodage Inverse</span></li>
+                        <li><strong>GeoNames</strong> <span>Villes proches</span></li>
+                    </ul>
+                </div>
+
+                <div class="api-card">
+                    <div class="api-category">📸 Médias Dynamiques</div>
+                    <ul class="api-list">
+                        <li><strong>Pixabay</strong> <span>Photos des spots</span></li>
+                        <li><strong>Wikipedia API</strong> <span>Images contextuelles</span></li>
+                        <li><strong>Unsplash</strong> <span>Fallback intelligent</span></li>
+                    </ul>
+                </div>
+
+                <div class="api-card">
+                    <div class="api-category">🛠️ Services Tiers</div>
+                    <ul class="api-list">
+                        <li><strong>NewsAPI</strong> <span>Actus filtrées par IA</span></li>
+                        <li><strong>Stripe</strong> <span>Paiements Premium</span></li>
+                        <li><strong>Symfony Mailer</strong> <span>SMTP Transactionnel</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section style="margin-bottom: 4rem;">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2 class="section-title">Expérience Multi-Support</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>💻 Plateforme Web</h3>
+                    <p style="color: var(--gray-light);">Dashboard complet, configuration des alertes, gestion de compte et forum communautaire.</p>
+                </div>
+                <div class="skill-category">
+                    <h3>📱 Application Mobile <span class="badge-rn">React Native</span></h3>
+                    <p style="color: var(--gray-light);">Version native pour iOS et Android. Géolocalisation instantanée des spots autour de soi.</p>
+                </div>
+                <div class="skill-category">
+                    <h3>⌚ Application Watch</h3>
+                    <p style="color: var(--gray-light);">Extension pour montres connectées. Affichage ultra-simplifié : hauteur de vague et vent en un coup d'œil pendant la session.</p>
+                </div>
+                <div class="skill-category">
+                    <h3>🧠 Algorithme Sémantique</h3>
+                    <p style="color: var(--gray-light);">Filtrage intelligent des news (exclusion politique/social) pour un flux 100% nature.</p>
+                </div>
+                <div class="skill-category">
+                    <h3>💳 Monétisation</h3>
+                    <p style="color: var(--gray-light);">Intégration Stripe pour les abonnements Premium (accès aux modèles météo HD).</p>
+                </div>
+            </div>
+        </section>
+
+        <section style="margin-bottom: 4rem;">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2 class="section-title">Stack Technique</h2>
+            </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number">Symfony</span>
+                    <span class="stat-label">Backend API Platform</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">React Native</span>
+                    <span class="stat-label">Mobile & Watch</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">MySQL</span>
+                    <span class="stat-label">Stockage Données</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">8+ APIs</span>
+                    <span class="stat-label">Interconnexion</span>
+                </div>
+            </div>
+        </section>
+
+        <section style="margin-bottom: 4rem;">
+            <div class="section-header">
+                <span class="section-number">05</span>
+                <h2 class="section-title">Compétences Développées</h2>
+            </div>
+            <div class="about-features">
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>API Aggregation</h3>
+                    <p>Centralisation et normalisation de données hétérogènes (JSON, XML) provenant de multiples sources externes.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Développement Mobile</h3>
+                    <p>Création d'interfaces natives avec React Native et adaptation des composants pour petits écrans (montres).</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Performance</h3>
+                    <p>Optimisation des appels API (Cache, Asynchrone) pour garantir la fluidité sur mobile.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Sécurité & Paiement</h3>
+                    <p>Implémentation de tunnels de paiement sécurisés (Stripe) et protection des données utilisateurs.</p>
+                </div>
+            </div>
+        </section>
+
+        <div style="text-align: center; margin-top: 4rem;">
+            <a href="index.html#portfolio" class="btn btn-primary btn-large">
+                ← Retour aux Projets
+            </a>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-content">
+        <p>&copy; 2025 Portfolio Sacha. Tous droits réservés.</p>
+        <p class="footer-tagline">Développé avec passion & caféine</p>
+    </div>
+</footer>
+
+<script>
+    // Custom Cursor
+    const cursor = document.getElementById('cursor');
+    const cursorFollower = document.getElementById('cursor-follower');
+
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+
+        setTimeout(() => {
+            cursorFollower.style.left = e.clientX + 'px';
+            cursorFollower.style.top = e.clientY + 'px';
+        }, 100);
+    });
+
+    // Theme Toggle
+    function toggleTheme() {
+        document.body.classList.toggle('light-theme');
+        localStorage.setItem('theme', document.body.classList.contains('light-theme') ? 'light' : 'dark');
+    }
+
+    // Load saved theme
+    if (localStorage.getItem('theme') === 'light') {
+        document.body.classList.add('light-theme');
+    }
+
+    // Theme toggle button
+    document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+</script>
+</body>
+</html>

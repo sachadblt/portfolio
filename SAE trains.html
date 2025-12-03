@@ -3,77 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projets | Trains</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>SAE Trains | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" type="image/ico" href="images/favicon.ico">
 </head>
 <body>
-<div id="page">
-    <header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner">
-        <div class="overlay"></div>
-        <div class="container" style="text-align: center">
-            <div class="col-md-12 text-center center-image-container">
-                <img src="images/projets/trainIHM.png" alt="Trains" class="center-image">
 
-                <style>
-                    /* Ajout de styles pour centrer l'image */
-                    .center-image-container {
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        height: 100%; /* Pour centrer sur toute la hauteur disponible */
-                    }
-                    .center-image {
-                        height: auto;
-                        width: 50vw; /* Vous pouvez ajuster cette valeur selon vos besoins */
-                        border-style: dashed;
-                        border-width: 5px;
-                        border-color: #DD356EFF;
-                    }
-                </style>
+<style>
+    .hero-image-wrapper {
+        width: 100%;
+        max-width: 700px;
+        height: auto;
+        border-radius: 20px;
+    }
+</style>
+<!-- Custom Cursor -->
+<div id="cursor"></div>
+<div id="cursor-follower"></div>
 
-            </div>
-            <h1 class="title-effect main-title">SAE Trains</h1>
+<!-- Navigation -->
+<nav id="navbar">
+    <div class="logo">SACHA<span class="dot">.</span></div>
+    <ul class="nav-links">
+        <li><a href="index.html#home">Accueil</a></li>
+        <li><a href="index.html#about">À propos</a></li>
+        <li><a href="index.html#skills">Compétences</a></li>
+        <li><a href="index.html#portfolio">Portfolio</a></li>
+        <li><a href="index.html#experience">Expérience</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+
+    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Changer de thème">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
+    </button>
+
+    <div class="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-bg">
+        <div class="grid-overlay"></div>
+    </div>
+    <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+    <div class="hero-content">
+        <div class="hero-image-wrapper">
+            <img src="images/projets/trainIHM.png" alt="SAE Trains">
         </div>
-    </header>
-
-    <div class="project-content text-center">
-        <section>
-            <h2 class="title-effect">Objectif Principal</h2>
-            <p>Développer une application Java pour jouer à une version numérique du jeu de société Trains. Ce jeu permet à 2 à 4 joueurs de s’affronter en mode multijoueur local sur un même appareil.</p>
-        </section>
-
-        <section>
-            <h2 class="title-effect">Description du Jeu</h2>
-            <p>Trains est un jeu de deck-building et de plateau où les joueurs développent des réseaux ferroviaires, construisent des gares et gèrent leurs cartes pour maximiser leurs points. Il mêle stratégie et gestion sur un plateau interactif.</p>
-        </section>
-
-        <section>
-            <h2 class="title-effect">Fonctionnalités de l’Application</h2>
-            <ul>
-                <li><strong>Multijoueur Local</strong>: Mode de 2 à 4 joueurs jouable sur un même appareil.</li>
-                <li><strong>Plateau de Jeu Virtuel</strong>: Représentation fidèle du plateau physique.</li>
-                <li><strong>Gestion de Deck</strong>: Achat, tri et gestion des cartes "déchets".</li>
-                <li><strong>Interface Intuitive</strong>: Design ergonomique pour manipuler les cartes et interagir avec le plateau.</li>
-                <li><strong>Statistiques</strong>: Suivi des scores de chaque joueur.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2 class="title-effect">Architecture Technique</h2>
-            <ul>
-                <li><strong>Langage</strong>: Java</li>
-                <li><strong>Interface Graphique</strong>: JavaFX</li>
-            </ul>
-        </section>
+        <div class="glitch-wrapper">
+            <h1 class="glitch">SAE Trains</h1>
+        </div>
+        <p class="hero-subtitle">Jeu de deck-building et stratégie</p>
     </div>
+</section>
 
-    <br><br>
-    <div style="justify-content: center; text-align: center">
-        <a href="index.html#projects" style="text-decoration: none" class="btn btn-primary back-button">Retour aux Projets</a>
+<!-- Project Content -->
+<section class="about">
+    <div class="container">
+        <div class="about-content">
+            <div class="about-text">
+                <h2 class="lead">🎯 Objectif Principal</h2>
+                <p>Développer une application Java pour jouer à une version numérique du jeu de société Trains. Ce jeu permet à 2 à 4 joueurs de s'affronter en mode multijoueur local sur un même appareil.</p>
+
+                <h2 class="lead" style="margin-top: 2rem;">📖 Description du Jeu</h2>
+                <p>Trains est un jeu de deck-building et de plateau où les joueurs développent des réseaux ferroviaires, construisent des gares et gèrent leurs cartes pour maximiser leurs points. Il mêle stratégie et gestion sur un plateau interactif.</p>
+
+                <h2 class="lead" style="margin-top: 2rem;">⚙️ Architecture Technique</h2>
+                <p><strong>Langage:</strong> Java</p>
+                <p><strong>Interface Graphique:</strong> JavaFX</p>
+            </div>
+
+            <div class="about-features">
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Multijoueur Local</h3>
+                    <p>Mode de 2 à 4 joueurs jouable sur un même appareil pour des parties conviviales.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🗺️</div>
+                    <h3>Plateau de Jeu Virtuel</h3>
+                    <p>Représentation fidèle du plateau physique avec interaction intuitive.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🃏</div>
+                    <h3>Gestion de Deck</h3>
+                    <p>Achat, tri et gestion des cartes "déchets" pour optimiser votre stratégie.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Interface Intuitive</h3>
+                    <p>Design ergonomique pour manipuler les cartes et interagir avec le plateau facilement.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Statistiques</h3>
+                    <p>Suivi des scores de chaque joueur en temps réel tout au long de la partie.</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 4rem;">
+            <a href="index.html#portfolio" class="btn btn-primary btn-large">
+                ← Retour aux Projets
+            </a>
+        </div>
     </div>
-    <br><br><br>
-</div>
+</section>
 
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-content">
+        <p>&copy; 2024 Portfolio. Tous droits réservés.</p>
+        <p class="footer-tagline">Conçu avec passion</p>
+    </div>
+</footer>
+
+<script>
+    // Custom Cursor
+    const cursor = document.getElementById('cursor');
+    const cursorFollower = document.getElementById('cursor-follower');
+
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+
+        setTimeout(() => {
+            cursorFollower.style.left = e.clientX + 'px';
+            cursorFollower.style.top = e.clientY + 'px';
+        }, 100);
+    });
+
+    // Theme Toggle
+    function toggleTheme() {
+        document.body.classList.toggle('light-theme');
+        localStorage.setItem('theme', document.body.classList.contains('light-theme') ? 'light' : 'dark');
+    }
+
+    // Load saved theme
+    if (localStorage.getItem('theme') === 'light') {
+        document.body.classList.add('light-theme');
+    }
+</script>
 </body>
 </html>

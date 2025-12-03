@@ -1,133 +1,241 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stage | Premium Water Distribution</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" type="image/ico" href="images/favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stage Premium Water | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/ico" href="images/favicon.ico">
 </head>
 <body>
-<div id="page">
-  <header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner">
-    <div class="overlay"></div>
-    <div class="container" style="text-align: center">
-      <div class="col-md-12 text-center center-image-container">
-        <img src="images/projets/premium-water.png" alt="Premium Water Distribution" class="center-image">
 
-        <style>
-          /* Ajout de styles pour centrer l'image */
-          .center-image-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%; /* Pour centrer sur toute la hauteur disponible */
-          }
-          .center-image {
-            height: auto;
-            width: 250px; /* Taille réduite pour l'image */
-            border-style: dashed;
-            border-width: 5px;
-            border-color: #DD356EFF;
-          }
-        </style>
+<style>
+    .hero-image-wrapper {
+        width: 100%;
+        max-width: 700px;
+        height: auto;
+        border-radius: 20px;
+    }
+</style>
+<!-- Custom Cursor -->
+<div id="cursor"></div>
+<div id="cursor-follower"></div>
 
-      </div>
-      <h1 class="title-effect main-title">Stage - Premium Water Distribution</h1>
+<!-- Navigation -->
+<nav id="navbar">
+    <div class="logo">SACHA<span class="dot">.</span></div>
+    <ul class="nav-links">
+        <li><a href="index.html#home">Accueil</a></li>
+        <li><a href="index.html#about">À propos</a></li>
+        <li><a href="index.html#skills">Compétences</a></li>
+        <li><a href="index.html#portfolio">Portfolio</a></li>
+        <li><a href="index.html#experience">Expérience</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+
+    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Changer de thème">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
+    </button>
+
+    <div class="burger">
+        <span></span>
+        <span></span>
+        <span></span>
     </div>
-  </header>
+</nav>
 
-  <div class="project-content text-center">
-    <section>
-      <h2 class="title-effect">Présentation de l'Entreprise</h2>
-      <p>Premium Water Distribution est une entreprise de e-commerce spécialisée dans la vente en ligne de purificateurs d'eau. L'entreprise utilise PrestaShop comme plateforme de gestion de son commerce électronique.</p>
-    </section>
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-bg">
+        <div class="grid-overlay"></div>
+    </div>
+    <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+    <div class="hero-content">
+        <div class="hero-image-wrapper">
+            <img src="images/projets/premium-water.png" alt="Premium Water Distribution">
+        </div>
+        <div class="glitch-wrapper">
+            <h1 class="glitch">Stage Premium Water</h1>
+        </div>
+        <p class="hero-subtitle">Développement d'un module PrestaShop</p>
+    </div>
+</section>
 
-    <section>
-      <h2 class="title-effect">Objectif du Stage</h2>
-      <p>L'objectif principal de ce stage était de développer un module d'exportation statistique pour PrestaShop afin de pallier les limitations des outils natifs qui ne permettaient pas d'obtenir des rapports personnalisés et détaillés sur les clients et les commandes.</p>
-      <p>Face à ces limitations, les collaborateurs étaient contraints de recourir à des requêtes SQL manuelles complexes via phpMyAdmin, ce qui représentait une perte de temps considérable et augmentait les risques d'erreurs.</p>
-    </section>
+<!-- Project Content -->
+<section class="about">
+    <div class="container">
+        <section style="margin-bottom: 4rem;">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2 class="section-title">Présentation de l'Entreprise</h2>
+            </div>
+            <p style="color: var(--gray-light); font-size: 1.1rem; max-width: 800px; margin: 0 auto;">
+                Premium Water Distribution est une entreprise de e-commerce spécialisée dans la vente en ligne de purificateurs d'eau. L'entreprise utilise PrestaShop comme plateforme de gestion de son commerce électronique.
+            </p>
+        </section>
 
-    <section>
-      <h2 class="title-effect">Analyse de l'Existant et Besoins</h2>
-      <p>Une analyse approfondie a permis d'identifier les besoins suivants :</p>
-      <ul>
-        <li><strong>Export des clients</strong> : Filtrage avancé selon des critères géographiques, comportementaux et commerciaux</li>
-        <li><strong>Export des commandes</strong> : Analyse détaillée des commandes et des produits associés</li>
-        <li><strong>Alertes mail</strong> : Gestion des alertes pour les produits en rupture de stock</li>
-        <li><strong>Statistiques</strong> : Visualisation et analyse des performances de vente par région</li>
-        <li><strong>Paramètres et historique</strong> : Configuration du module et suivi des exports effectués</li>
-      </ul>
-    </section>
+        <section style="margin-bottom: 4rem;">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2 class="section-title">Objectif du Stage</h2>
+            </div>
+            <p style="color: var(--gray-light); font-size: 1.1rem; max-width: 800px; margin: 0 auto; margin-bottom: 1.5rem;">
+                L'objectif principal de ce stage était de développer un module d'exportation statistique pour PrestaShop afin de pallier les limitations des outils natifs qui ne permettaient pas d'obtenir des rapports personnalisés et détaillés sur les clients et les commandes.
+            </p>
+            <p style="color: var(--gray-light); font-size: 1.1rem; max-width: 800px; margin: 0 auto;">
+                Face à ces limitations, les collaborateurs étaient contraints de recourir à des requêtes SQL manuelles complexes via phpMyAdmin, ce qui représentait une perte de temps considérable et augmentait les risques d'erreurs.
+            </p>
+        </section>
 
-    <section>
-      <h2 class="title-effect">Développement du Module</h2>
-      <p>Le module a été développé en utilisant les technologies suivantes :</p>
-      <ul>
-        <li><strong>PrestaShop</strong> : Plateforme e-commerce</li>
-        <li><strong>PHP</strong> : Langage de programmation côté serveur</li>
-        <li><strong>Symfony</strong> : Framework PHP</li>
-        <li><strong>SQL</strong> : Langage de requêtes pour la base de données</li>
-      </ul>
-      <p>Le développement a nécessité une optimisation poussée des requêtes SQL, une réflexion sur l'ergonomie de l'interface et une gestion rigoureuse de la sécurité des données.</p>
-    </section>
+        <section style="margin-bottom: 4rem;">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2 class="section-title">Fonctionnalités Développées</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>📤 Export des clients</h3>
+                    <p style="color: var(--gray-light);">Filtrage avancé selon des critères géographiques, comportementaux et commerciaux</p>
+                </div>
+                <div class="skill-category">
+                    <h3>📦 Export des commandes</h3>
+                    <p style="color: var(--gray-light);">Analyse détaillée des commandes et des produits associés</p>
+                </div>
+                <div class="skill-category">
+                    <h3>📧 Alertes mail</h3>
+                    <p style="color: var(--gray-light);">Gestion des alertes pour les produits en rupture de stock</p>
+                </div>
+                <div class="skill-category">
+                    <h3>📊 Statistiques</h3>
+                    <p style="color: var(--gray-light);">Visualisation et analyse des performances de vente par région</p>
+                </div>
+                <div class="skill-category">
+                    <h3>⚙️ Paramètres</h3>
+                    <p style="color: var(--gray-light);">Configuration du module et suivi des exports effectués</p>
+                </div>
+            </div>
+        </section>
 
-    <section>
-      <h2 class="title-effect">Structure et Fonctionnalités</h2>
-      <p>Le module comprend cinq onglets principaux :</p>
-      <ul>
-        <li><strong>Export des clients</strong> : Interface de filtrage des clients selon divers critères</li>
-        <li><strong>Export des commandes</strong> : Interface d'analyse des commandes et produits</li>
-        <li><strong>Alertes mail</strong> : Système de gestion des alertes pour ruptures de stock</li>
-        <li><strong>Statistiques</strong> : Tableaux de bord et visualisations des performances de vente</li>
-        <li><strong>Paramètres et historique</strong> : Configuration et traçabilité des exports</li>
-      </ul>
-      <p>Parmi les fonctionnalités avancées développées :</p>
-      <ul>
-        <li>Filtrage géographique et comportemental des clients</li>
-        <li>Export des données aux formats CSV et XML</li>
-        <li>Visualisations statistiques par région</li>
-        <li>Système de journalisation des exports</li>
-      </ul>
-    </section>
+        <section style="margin-bottom: 4rem;">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2 class="section-title">Architecture Technique</h2>
+            </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number">PrestaShop</span>
+                    <span class="stat-label">Plateforme e-commerce</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">PHP</span>
+                    <span class="stat-label">Langage backend</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">Symfony</span>
+                    <span class="stat-label">Framework PHP</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">SQL</span>
+                    <span class="stat-label">Base de données</span>
+                </div>
+            </div>
+        </section>
 
-    <section>
-      <h2 class="title-effect">Tests et Validation</h2>
-      <p>Pour garantir la qualité et la fiabilité du module, des tests ont été effectués sur différents environnements :</p>
-      <ul>
-        <li>Environnement de développement local</li>
-        <li>Environnement de préproduction</li>
-        <li>Environnement de production</li>
-      </ul>
-      <p>Les tests ont permis de détecter et corriger les problèmes techniques et fonctionnels. Les retours des utilisateurs finaux ont été très positifs, confirmant que le module répondait parfaitement aux besoins identifiés.</p>
-    </section>
+        <section style="margin-bottom: 4rem;">
+            <div class="section-header">
+                <span class="section-number">05</span>
+                <h2 class="section-title">Compétences Développées</h2>
+            </div>
+            <div class="about-features">
+                <div class="feature-card">
+                    <div class="feature-icon">💻</div>
+                    <h3>Développement Web</h3>
+                    <p>PHP, Symfony, PrestaShop, SQL</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📋</div>
+                    <h3>Gestion de Projet</h3>
+                    <p>Analyse des besoins, planification, tests</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Optimisation</h3>
+                    <p>Requêtes SQL complexes, performance</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Interface Utilisateur</h3>
+                    <p>Ergonomie, expérience utilisateur</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Sécurité</h3>
+                    <p>Protection des données, prévention des injections SQL</p>
+                </div>
+            </div>
+        </section>
 
-    <section>
-      <h2 class="title-effect">Compétences Développées</h2>
-      <ul>
-        <li><strong>Développement Web</strong> : PHP, Symfony, PrestaShop, SQL</li>
-        <li><strong>Gestion de Projet</strong> : Analyse des besoins, planification, tests</li>
-        <li><strong>Optimisation</strong> : Requêtes SQL complexes, performance</li>
-        <li><strong>Interface Utilisateur</strong> : Ergonomie, expérience utilisateur</li>
-        <li><strong>Communication</strong> : Interactions avec les parties prenantes, présentation des résultats</li>
-        <li><strong>Sécurité</strong> : Protection des données, prévention des injections SQL</li>
-      </ul>
-    </section>
+        <section style="margin-bottom: 4rem;">
+            <div class="section-header">
+                <span class="section-number">06</span>
+                <h2 class="section-title">Résultats et Impact</h2>
+            </div>
+            <div class="contact-cta">
+                <h3>✨ Succès du Projet</h3>
+                <p style="margin-bottom: 1rem;">Le module d'exportation statistique développé est désormais utilisé quotidiennement par l'équipe de Premium Water Distribution, ce qui a considérablement amélioré leur productivité et la qualité de leurs analyses commerciales.</p>
+                <p>Cette expérience m'a permis de développer un module répondant précisément aux besoins de l'entreprise et d'acquérir de nouvelles compétences techniques et transversales dans un contexte professionnel réel.</p>
+            </div>
+        </section>
 
-    <section>
-      <h2 class="title-effect">Conclusion</h2>
-      <p>Ce stage a été une expérience enrichissante qui m'a permis de développer un module répondant précisément aux besoins de l'entreprise. J'ai pu mettre en pratique mes connaissances théoriques dans un contexte professionnel réel et acquérir de nouvelles compétences techniques et transversales.</p>
-      <p>Le module d'exportation statistique développé est désormais utilisé quotidiennement par l'équipe de Premium Water Distribution, ce qui a considérablement amélioré leur productivité et la qualité de leurs analyses commerciales.</p>
-    </section>
-  </div>
+        <div style="text-align: center; margin-top: 4rem;">
+            <a href="index.html#experience" class="btn btn-primary btn-large">
+                ← Retour aux Projets
+            </a>
+        </div>
+    </div>
+</section>
 
-  <br><br>
-  <div style="justify-content: center; text-align: center">
-    <a href="index.html#experience" style="text-decoration: none" class="btn btn-primary back-button">Retour aux Expériences</a>
-  </div>
-  <br><br><br>
-</div>
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-content">
+        <p>&copy; 2024 Portfolio. Tous droits réservés.</p>
+        <p class="footer-tagline">Conçu avec passion</p>
+    </div>
+</footer>
 
+<script>
+    // Custom Cursor
+    const cursor = document.getElementById('cursor');
+    const cursorFollower = document.getElementById('cursor-follower');
+
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+
+        setTimeout(() => {
+            cursorFollower.style.left = e.clientX + 'px';
+            cursorFollower.style.top = e.clientY + 'px';
+        }, 100);
+    });
+
+    // Theme Toggle
+    function toggleTheme() {
+        document.body.classList.toggle('light-theme');
+        localStorage.setItem('theme', document.body.classList.contains('light-theme') ? 'light' : 'dark');
+    }
+
+    // Load saved theme
+    if (localStorage.getItem('theme') === 'light') {
+        document.body.classList.add('light-theme');
+    }
+</script>
 </body>
 </html>
