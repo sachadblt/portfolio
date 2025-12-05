@@ -82,12 +82,12 @@
 <div id="cursor-follower"></div>
 
 <nav id="navbar">
-    <div class="logo">SACHA<span class="dot">.</span></div>
+    <div class="logo"><a href="index.html">SACHA</a><span class="dot">.</span></div>
     <ul class="nav-links">
         <li><a href="index.html#home">Accueil</a></li>
         <li><a href="index.html#about">À propos</a></li>
         <li><a href="index.html#skills">Compétences</a></li>
-        <li><a href="index.html#portfolio">Portfolio</a></li>
+        <li><a href="index.html#projets">Projets réalisés</a></li>
         <li><a href="index.html#experience">Expérience</a></li>
         <li><a href="index.html#contact">Contact</a></li>
     </ul>
@@ -269,7 +269,7 @@
         </section>
 
         <div style="text-align: center; margin-top: 4rem;">
-            <a href="index.html#portfolio" class="btn btn-primary btn-large">
+            <a href="index.html#projets" class="btn btn-primary btn-large">
                 ← Retour aux Projets
             </a>
         </div>
@@ -283,34 +283,11 @@
     </div>
 </footer>
 
+<script src="js/main.js"></script>
 <script>
-    // Custom Cursor
-    const cursor = document.getElementById('cursor');
-    const cursorFollower = document.getElementById('cursor-follower');
-
-    document.addEventListener('mousemove', (e) => {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-
-        setTimeout(() => {
-            cursorFollower.style.left = e.clientX + 'px';
-            cursorFollower.style.top = e.clientY + 'px';
-        }, 100);
-    });
-
-    // Theme Toggle
-    function toggleTheme() {
-        document.body.classList.toggle('light-theme');
-        localStorage.setItem('theme', document.body.classList.contains('light-theme') ? 'light' : 'dark');
-    }
-
-    // Load saved theme
     if (localStorage.getItem('theme') === 'light') {
         document.body.classList.add('light-theme');
     }
-
-    // Theme toggle button
-    document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
 </script>
 </body>
 </html>

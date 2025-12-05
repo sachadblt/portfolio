@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capy Snake | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/ico" href="images/favicon.ico">
+</head>
+<body>
+
+<style>
+    /* Conteneur de la grille */
+    .project-gallery {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur PC */
+        gap: 1.5rem; /* Espace entre les images */
+        width: 100%;
+        max-width: 900px; /* Largeur max totale */
+        margin: 0 auto 2rem auto; /* Centré */
+    }
+
+    /* Chaque bloc image */
+    .gallery-item {
+        position: relative;
+        height: 250px; /* Hauteur fixe pour uniformiser */
+        border-radius: 15px;
+        overflow: hidden;
+        border: 1px solid rgba(99, 102, 241, 0.2); /* Bordure subtile */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    /* L'image elle-même */
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Remplit le bloc sans déformer */
+        transition: transform 0.3s ease;
+    }
+
+    /* Effet au survol */
+    .gallery-item:hover {
+        box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+        border-color: var(--primary);
+    }
+    .gallery-item:hover img {
+        transform: scale(1.05); /* Léger zoom */
+    }
+
+    /* Version Mobile : une seule colonne */
+    @media (max-width: 768px) {
+        .project-gallery {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        .gallery-item {
+            height: 200px; /* Un peu moins haut sur mobile */
+        }
+    }
+</style>
+
+<div id="cursor"></div>
+<div id="cursor-follower"></div>
+
+<nav id="navbar">
+    <div class="logo"><a href="index.html">SACHA</a><span class="dot">.</span></div>
+    <ul class="nav-links">
+        <li><a href="index.html#home">Accueil</a></li>
+        <li><a href="index.html#about">À propos</a></li>
+        <li><a href="index.html#skills">Compétences</a></li>
+        <li><a href="index.html#projets">Projets réalisés</a></li>
+        <li><a href="index.html#experience">Expérience</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+
+    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Changer de thème">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
+    </button>
+
+    <div class="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-bg">
+        <div class="grid-overlay"></div>
+    </div>
+    <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+    <div class="hero-content">
+
+        <div class="project-gallery">
+            <div class="gallery-item">
+                <img src="images/projets/snake/promenade.png" alt="Capy Snake Mode Classique">
+            </div>
+            <div class="gallery-item">
+                <img src="images/projets/snake/riviere.png" alt="Capy Snake Mode Rivière">
+            </div>
+            <div class="gallery-item">
+                <img src="images/projets/snake/terrier.png" alt="Menu de Personnalisation">
+            </div>
+            <div class="gallery-item">
+                <img src="images/projets/snake/fps.png" alt="Vue FPS Capybara">
+            </div>
+        </div>
+        <div class="glitch-wrapper">
+            <h1 class="glitch">Capy Snake</h1>
+        </div>
+        <p class="hero-subtitle">Nuit de l'Info 2025 - Le Snake 3D réinventé</p>
+
+        <div class="hero-cta" style="margin-top: 2rem;">
+            <a href="https://sachadblt.github.io/snake/" target="_blank" class="btn btn-primary">
+                <span>Jouer maintenant 🎮</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="about">
+    <div class="container">
+        <div class="about-content">
+            <div class="about-text">
+                <h2 class="lead">🥜 Le Concept</h2>
+                <p>
+                    Réalisé durant la <strong>Nuit de l'Info 2025</strong> (c'est un evenement qui consiste à développer un projet du coucher au lever du soleil).
+                    <br>Capy Snake est une réinterprétation moderne en 3D du classique Snake, mettant en vedette l'animal le plus chill du monde : <strong>le Capybara</strong>.
+                </p>
+
+                <h2 class="lead" style="margin-top: 3rem;">⚙️ Stack Technique</h2>
+                <p><strong>Frontend :</strong> React 19, Vite</p>
+                <p><strong>3D Web :</strong> Three.js, React Three Fiber (R3F), Drei</p>
+                <p><strong>Déploiement :</strong> GitHub Pages</p>
+            </div>
+
+            <div class="about-features">
+                <div class="feature-card">
+                    <div class="feature-icon">🎮</div>
+                    <h3>4 Modes de Jeu Uniques</h3>
+                    <p>Promenade Classique, Traversée de Rivière (obstacles), Mode Terriers (téléportation/puzzle) et même un mode FPS pour une immersion totale.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Personnalisation 3D</h3>
+                    <p>Système complet de skins (Arc-en-ciel, Or...), fruits 3D variés (Pastèques, Bananes) et changement de biomes (Forêt, Désert, Neige).</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Système de Progression</h3>
+                    <p>Mécanique de déblocage de contenu (gamification) basée sur le High Score du joueur pour récompenser la performance.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Responsivité & Accessibilité</h3>
+                    <p>Jouable au clavier sur desktop ou via un D-Pad tactile adaptatif sur mobile. Support complet des contrôles tactiles.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🥚</div>
+                    <h3>Easter Egg</h3>
+                    <p>Implémentation du célèbre Konami Code pour débloquer une surprise festive. (Haut, Haut, Bas, Bas...)</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 4rem;">
+            <a href="index.html#projets" class="btn btn-primary btn-large">
+                ← Retour aux Projets
+            </a>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-content">
+        <p>&copy; 2025 Sacha DOUBLET. Tous droits réservés.</p>
+        <p class="footer-tagline">Développé avec la Team Capy 🥜</p>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+    if (localStorage.getItem('theme') === 'light') {
+        document.body.classList.add('light-theme');
+    }
+</script>
+</body>
+</html>
