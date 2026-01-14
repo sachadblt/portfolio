@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAE MyAvatar - Gestion d'avatars</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/ico" href="images/favicon.ico">
+</head>
+
+<body>
+
+    <style>
+        .hero-image-wrapper {
+            width: 100%;
+            max-width: 700px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+        }
+
+        .info-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: #fff;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .code-block {
+            background: #1e1e1e;
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            color: #d4d4d4;
+            margin-bottom: 1rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 0.5rem;
+            color: var(--gray-light);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+    </style>
+
+    <div id="cursor"></div>
+    <div id="cursor-follower"></div>
+
+    <nav id="navbar">
+        <div class="logo"><a href="index.html">SACHA</a><span class="dot">.</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html#home">Accueil</a></li>
+            <li><a href="index.html#about">À propos</a></li>
+            <li><a href="index.html#skills">Compétences</a></li>
+            <li><a href="index.html#projets">Projets réalisés</a></li>
+            <li><a href="index.html#experience">Expérience</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Changer de thème">
+            <span class="icon-sun">☀️</span>
+            <span class="icon-moon">🌙</span>
+        </button>
+
+        <div class="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="grid-overlay"></div>
+        </div>
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-image-wrapper">
+                <img src="images/projets/sae_my_avatar.png" alt="MyAvatar Application">
+            </div>
+            <div class="glitch-wrapper">
+                <h1 class="glitch">SAE MyAvatar</h1>
+            </div>
+            <p class="hero-subtitle">Gestion d'avatars personnalisés avec Symfony</p>
+            <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center;">
+                <a href="https://webinfo.iutmontp.univ-montp2.fr/~martinezc/saemyavatar/shared/public_html/sae_my_avatar/public/"
+                    target="_blank" class="btn btn-primary">Voir le site</a>
+                <a href="https://gitlabinfo.iutmontp.univ-montp2.fr/martinezc/saemyavatar" target="_blank"
+                    class="btn btn-secondary">Code Source</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="container">
+
+            <section style="margin-bottom: 4rem;">
+                <div class="section-header">
+                    <span class="section-number">01</span>
+                    <h2 class="section-title">Présentation</h2>
+                </div>
+                <p style="color: var(--gray-light); font-size: 1.1rem; max-width: 800px; margin: 0 auto;">
+                    MyAvatar est une application web moderne permettant aux utilisateurs de créer un compte, gérer leur
+                    profil et uploader un avatar personnalisé. L'application offre un contrôle complet sur la visibilité
+                    des avatars (public/privé) et dispose d'un panel d'administration pour la gestion des utilisateurs.
+                </p>
+            </section>
+
+            <section style="margin-bottom: 4rem;">
+                <div class="section-header">
+                    <span class="section-number">02</span>
+                    <h2 class="section-title">Installation & Configuration</h2>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>🐳 Docker</h3>
+                        <div class="code-block">
+                            cd sae_my_avatar
+                            docker compose up -d
+                            docker exec -it sae_my_avatar-server-1 bash
+                            cd sae_my_avatar
+                            composer install
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <h3>🗄️ Base de Données</h3>
+                        <div class="code-block">
+                            php bin/console doctrine:database:create
+                            mkdir migrations
+                            php bin/console make:migration
+                            php bin/console doctrine:migrations:migrate
+                        </div>
+                    </div>
+                </div>
+
+                <p style="margin-top: 1rem; color: var(--gray-light); text-align: center;">
+                    ⚠️ <strong>Production :</strong> Pensez à configurer les permissions des dossiers cache et logs
+                    :<br>
+                    <code>chown -R www-data:www-data var/cache var/log</code>
+                </p>
+            </section>
+
+            <section style="margin-bottom: 4rem;">
+                <div class="section-header">
+                    <span class="section-number">03</span>
+                    <h2 class="section-title">Fonctionnalités</h2>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>👤 Utilisateur</h3>
+                        <ul class="feature-list">
+                            <li>✏️ Inscription & Connexion sécurisée</li>
+                            <li>🖼️ Upload d'avatar personnalisé</li>
+                            <li>🔒 Gestion visibilité (Public/Privé)</li>
+                            <li>🔗 URL publique unique (Hash SHA256)</li>
+                            <li>🔑 Réinitialisation mot de passe</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>🛠️ Administration</h3>
+                        <ul class="feature-list">
+                            <li>👥 Gestion des utilisateurs</li>
+                            <li>🗑️ Suppression de comptes</li>
+                            <li>🔧 Mode Maintenance</li>
+                            <li>👑 Commandes CLI admin</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>🐛 Limitations Connues</h3>
+                        <ul class="feature-list">
+                            <li>❌ Inscription désactivée en Prod</li>
+                            <li>⚠️ Permissions cache/logs à configurer</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section style="margin-bottom: 4rem;">
+                <div class="section-header">
+                    <span class="section-number">04</span>
+                    <h2 class="section-title">Architecture & Routes</h2>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>Routes Public</h3>
+                        <ul class="feature-list">
+                            <li><code>/</code> : Accueil</li>
+                            <li><code>/connexion</code> : Login</li>
+                            <li><code>/inscription</code> : Inscription (Dev)</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>Routes Authentifié</h3>
+                        <ul class="feature-list">
+                            <li><code>/avatar</code> : Gestion Profil</li>
+                            <li><code>/deconnexion</code> : Logout</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>Routes Admin</h3>
+                        <ul class="feature-list">
+                            <li><code>/admin</code> : Dashboard</li>
+                            <li><code>/admin/users</code> : Users List</li>
+                            <li><code>/admin/maintenance</code> : Maintenance</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section style="margin-bottom: 4rem;">
+                <div class="section-header">
+                    <span class="section-number">05</span>
+                    <h2 class="section-title">L'Équipe</h2>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number">Nathan</span>
+                        <span class="stat-label">Session & CSS</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">Sacha</span>
+                        <span class="stat-label">Profil & Avatar</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">Corentin</span>
+                        <span class="stat-label">BDD & SMTP</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">Loris</span>
+                        <span class="stat-label">Admin & Maintenance</span>
+                    </div>
+                </div>
+            </section>
+
+            <div style="text-align: center; margin-top: 4rem;">
+                <a href="index.html#projets" class="btn btn-primary btn-large">
+                    ← Retour aux Projets
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Sacha. Tous droits réservés.</p>
+            <p class="footer-tagline">Développé avec Symfony & Passion</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        if (localStorage.getItem('theme') === 'light') {
+            document.body.classList.add('light-theme');
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAE VeryBadSplit - Gestion de dépenses</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/ico" href="images/favicon.ico">
+</head>
+
+<body>
+
+    <style>
+        .hero-image-wrapper {
+            width: 100%;
+            max-width: 700px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 0.5rem;
+            color: var(--gray-light);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .security-badge {
+            display: inline-block;
+            background: rgba(46, 204, 113, 0.2);
+            color: #2ecc71;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+        }
+    </style>
+
+    <div id="cursor"></div>
+    <div id="cursor-follower"></div>
+
+    <nav id="navbar">
+        <div class="logo"><a href="index.html">SACHA</a><span class="dot">.</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html#home">Accueil</a></li>
+            <li><a href="index.html#about">À propos</a></li>
+            <li><a href="index.html#skills">Compétences</a></li>
+            <li><a href="index.html#projets">Projets réalisés</a></li>
+            <li><a href="index.html#experience">Expérience</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Changer de thème">
+            <span class="icon-sun">☀️</span>
+            <span class="icon-moon">🌙</span>
+        </button>
+
+        <div class="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="grid-overlay"></div>
+        </div>
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-image-wrapper">
+                <img src="images/projets/vbs.png" alt="VeryBadSplit Application">
+            </div>
+            <div class="glitch-wrapper">
+                <h1 class="glitch">SAE VeryBadSplit</h1>
+            </div>
+            <p class="hero-subtitle">Gérez vos dépenses de voyage entre amis sans stress ! 🚀✈️</p>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="container">
+
+            <section style="margin-bottom: 4rem;">
+                <div class="section-header">
+                    <span class="section-number">01</span>
+                    <h2 class="section-title">Présentation</h2>
+                </div>
+                <p style="color: var(--gray-light); font-size: 1.1rem; max-width: 800px; margin: 0 auto;">
+                    Notre outil simplifie le partage des coûts et le remboursement des dettes, pour que vous profitiez à
+                    100% de vos aventures sans les soucis d'argent. #VoyagezLibre
+                </p>
+            </section>
+
+            <section style="margin-bottom: 4rem;">
+                <div class="section-header">
+                    <span class="section-number">02</span>
+                    <h2 class="section-title">Améliorations Techniques & Sécurité</h2>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>🔒 Sécurité Renforcée</h3>
+                        <ul class="feature-list">
+                            <li>🛡️ <strong>Injection SQL :</strong> QueryBuilder & Requêtes préparées</li>
+                            <li>🛡️ <strong>XSS :</strong> Protection Twig & Échappement auto</li>
+                            <li>🛡️ <strong>Cookies :</strong> Secure, HttpOnly, SameSite=Strict</li>
+                            <li>🛡️ <strong>Passwords :</strong> Hashage Bcrypt</li>
+                            <li>🛡️ <strong>CSRF :</strong> Validation systématique</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>⚡ Performance & Architecture</h3>
+                        <ul class="feature-list">
+                            <li>🏗️ <strong>Architecture MVCS :</strong> Services découplés</li>
+                            <li>💉 <strong>Injection de dépendances :</strong> Conteneur DI</li>
+                            <li>🐳 <strong>Docker :</strong> Environnement isolé & CI/CD</li>
+                            <li>📊 <strong>Algorithme Dettes :</strong> Optimisé O(n log n)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section style="margin-bottom: 4rem;">
+                <div class="section-header">
+                    <span class="section-number">03</span>
+                    <h2 class="section-title">Fonctionnalités Clés</h2>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>🌍 Géolocalisation</h3>
+                        <ul class="feature-list">
+                            <li>🗺️ Cartographie Leaflet.js / OSM</li>
+                            <li>📍 Marqueurs dépenses interactifs</li>
+                            <li>📊 Analyse des coûts par zone</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>📧 Communication</h3>
+                        <ul class="feature-list">
+                            <li>📨 API Brevo (Emails transactionnels)</li>
+                            <li>🔑 Récupération compte (Token temporel)</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>💻 Interface Utilisateur</h3>
+                        <ul class="feature-list">
+                            <li>✨ UI Dynamique (AJAX)</li>
+                            <li>📱 Responsive Design</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section style="margin-bottom: 4rem;">
+                <div class="section-header">
+                    <span class="section-number">04</span>
+                    <h2 class="section-title">L'Équipe</h2>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number">Antonin</span>
+                        <span class="stat-label">Frontend JS & APIs</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">Corentin</span>
+                        <span class="stat-label">PHP & Services</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">Sacha</span>
+                        <span class="stat-label">Tests & Routes</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">Will</span>
+                        <span class="stat-label">BDD & Architecture</span>
+                    </div>
+                </div>
+            </section>
+
+            <div style="text-align: center; margin-top: 4rem;">
+                <a href="index.html#projets" class="btn btn-primary btn-large">
+                    ← Retour aux Projets
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Sacha. Tous droits réservés.</p>
+            <p class="footer-tagline">Voyagez & Partagez</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        if (localStorage.getItem('theme') === 'light') {
+            document.body.classList.add('light-theme');
+        }
+    </script>
+</body>
+
+</html>
