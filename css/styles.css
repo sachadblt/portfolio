@@ -430,6 +430,44 @@ body.light-theme .hero-image-wrapper {
     transform: translateY(-3px);
 }
 
+.btn-accent {
+    background: linear-gradient(135deg, var(--secondary), #8B5CF6);
+    color: white;
+    border: 2px solid transparent;
+    animation: pulseGlow 3s infinite;
+}
+
+.btn-accent:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+}
+
+@keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 10px rgba(99, 102, 241, 0.2); }
+    50% { box-shadow: 0 0 25px rgba(99, 102, 241, 0.4); }
+}
+
+/* NAV CTA Portfolio BUT */
+.nav-cta-but {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700 !important;
+    position: relative;
+}
+
+.nav-cta-but::after {
+    background: linear-gradient(90deg, var(--primary), var(--secondary)) !important;
+    width: 100% !important;
+    opacity: 0;
+    transition: opacity 0.3s ease !important;
+}
+
+.nav-cta-but:hover::after {
+    opacity: 1;
+}
+
 .btn-large {
     padding: 1.2rem 2.5rem;
     font-size: 1.1rem;
