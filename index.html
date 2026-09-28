@@ -25,7 +25,6 @@
             <li><a href="#projets">Projets réalisés</a></li>
             <li><a href="#experience">Expérience</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a href="competences.html" class="nav-cta-but">📘 Portfolio BUT</a></li>
         </ul>
 
         <button id="theme-toggle" class="theme-toggle-btn" aria-label="Changer de thème">
@@ -71,12 +70,6 @@
                 </a>
                 <a href="ressources/CV%20Sacha%20Doublet.pdf" class="btn btn-secondary" download>
                     <span>Télécharger mon CV</span>
-                </a>
-                <a href="competences.html" class="btn btn-accent">
-                    <span>📘 Mon Portfolio d'Apprentissage BUT</span>
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                        <path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                    </svg>
                 </a>
             </div>
         </div>
@@ -227,6 +220,26 @@
             </div>
 
             <div class="projects-grid">
+                <article class="project-card" data-category="stage">
+                    <div class="project-image">
+                        <img src="images/projets/GroupeICV - Copie.png" alt="Intranet Groupe ICV">
+                        <div class="project-overlay">
+                            <span class="project-category">Stage / Microsoft 365</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-year">2026</span>
+                        <h3>Refonte Intranet - Groupe ICV</h3>
+                        <p>Développement de composants React (SPFx) et automatisation PowerShell pour la refonte de l'écosystème documentaire.</p>
+                        <div class="project-tags">
+                            <span>React</span>
+                            <span>TypeScript</span>
+                            <span>PowerShell</span>
+                        </div>
+                        <a href="stage-groupe-icv.html" class="project-link">En savoir plus →</a>
+                    </div>
+                </article>
+
                 <article class="project-card" data-category="game">
                     <div class="project-image">
                         <img src="images/projets/snake/menu.png" alt="Capy Snake 3D">
@@ -440,7 +453,8 @@
                         <span class="timeline-year">2026</span>
                         <h3>Développeur — Modernisation SI</h3>
                         <h4>Groupe ICV - Stage</h4>
-                        <p>Migration globale vers Microsoft 365 / SharePoint Online, conception de flux cloud sécurisés sous Power Automate, développement de webparts React/TypeScript (SPFx) via Microsoft Graph API, prototypage d’agents IA (RAG).</p>
+                        <p>Migration globale de l'intranet vers Microsoft 365. Développement de composants sur-mesure React/TypeScript (SPFx). Automatisation des processus métiers via PowerShell et API Microsoft Graph.</p>
+                        <a href="stage-groupe-icv.html" class="project-link" style="display:inline-block; margin-top:0.5rem; font-weight:bold;">Voir le détail du projet & le rapport →</a>
                     </div>
                 </div>
 
@@ -448,9 +462,20 @@
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <span class="timeline-year">2025</span>
-                        <h3>Développeur Web</h3>
+                        <h3>Développeur Back office</h3>
                         <h4>Premium Water Distribution SAS - Stage</h4>
                         <p>Développement d'un module PrestaShop donnant accès aux statistiques des boutiques pour mieux cibler la clientèle.</p>
+                        <a href="stage-premium-water.html" class="project-link" style="display:inline-block; margin-top:0.5rem; font-weight:bold;">Voir le détail du projet →</a>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2025</span>
+                        <h3>Employé polyvalent</h3>
+                        <h4>Monoprix - Sète</h4>
+                        <p>Gestion de caisse, relation client, résolution de problèmes en temps réel.</p>
                     </div>
                 </div>
 
@@ -463,6 +488,7 @@
                         <p>Gestion des stocks et des livraisons en ligne : organisation et rigueur.</p>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>

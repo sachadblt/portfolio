@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stage Groupe ICV | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/ico" href="images/favicon.ico">
+</head>
+<body>
+
+<style>
+    .hero-image-wrapper {
+        width: 100%;
+        max-width: 700px;
+        height: auto;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+    .pdf-download-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--primary-color);
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        margin-top: 1.5rem;
+        transition: background 0.3s ease;
+    }
+    .pdf-download-btn:hover {
+        background: var(--primary-dark);
+    }
+</style>
+<!-- Custom Cursor -->
+<div id="cursor"></div>
+<div id="cursor-follower"></div>
+
+<!-- Navigation -->
+<nav id="navbar">
+    <div class="logo"><a href="index.html">SACHA</a><span class="dot">.</span></div>
+    <ul class="nav-links">
+        <li><a href="index.html#home">Accueil</a></li>
+        <li><a href="index.html#about">À propos</a></li>
+        <li><a href="index.html#skills">Compétences</a></li>
+        <li><a href="index.html#projets">Projets réalisés</a></li>
+        <li><a href="index.html#experience">Expérience</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+
+    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Changer de thème">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
+    </button>
+
+    <div class="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-bg">
+        <div class="grid-overlay"></div>
+    </div>
+    <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+    <div class="hero-content">
+        <div class="hero-image-wrapper">
+            <!-- Image du screenshot SharePoint -->
+            <img src="images/projets/GroupeICV.png" alt="Accueil SharePoint du Groupe ICV">
+        </div>
+        <div class="glitch-wrapper">
+            <h1 class="glitch" data-text="Stage Groupe ICV">Stage Groupe ICV</h1>
+        </div>
+        <p class="hero-subtitle">Refonte de l'intranet sur Microsoft 365</p>
+    </div>
+</section>
+
+<!-- Project Content -->
+<section class="about">
+    <div class="container">
+        <section style="margin-bottom: 4rem;">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2 class="section-title">Présentation du Contexte</h2>
+            </div>
+            <p style="color: var(--gray-light); font-size: 1.1rem; max-width: 800px; margin: 0 auto;">
+                Le Groupe ICV est le premier acteur français du conseil et de l'analyse des vins. L'objectif de ce stage était de refondre leur intranet documentaire, initialement hébergé sur un ancien SharePoint 2013 interne, vers un écosystème moderne, collaboratif et sécurisé basé sur Microsoft 365.
+            </p>
+        </section>
+
+        <section style="margin-bottom: 4rem;">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2 class="section-title">Les Défis du Projet</h2>
+            </div>
+            <p style="color: var(--gray-light); font-size: 1.1rem; max-width: 800px; margin: 0 auto; margin-bottom: 1.5rem;">
+                Le système précédent souffrait d'un cloisonnement documentaire important (plusieurs plateformes non connectées), d'une recherche inefficace et de l'absence d'un annuaire d'entreprise unifié. La solution a nécessité de consolider 4 systèmes hétérogènes en une architecture d'information structurée regroupant 29 sites.
+            </p>
+            <p style="color: var(--gray-light); font-size: 1.1rem; max-width: 800px; margin: 0 auto;">
+                Un des défis majeurs a été d'adopter les bons outils pour les bonnes tâches, comme l'abandon d'un flux Power Automate défaillant au profit d'un script PowerShell robuste. Ce changement a permis de gérer l'automatisation et la synchronisation de plus de 16 190 dossiers clients tout en respectant des contraintes de sécurité et de licences strictes.
+            </p>
+        </section>
+
+        <section style="margin-bottom: 4rem;">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2 class="section-title">Réalisations Techniques</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>🔍 Annuaire Dynamique</h3>
+                    <p style="color: var(--gray-light);">Développement d'un composant React (SPFx) connecté à l'API Microsoft Graph pour permettre aux utilisateurs de rechercher facilement tous les collaborateurs de l'entreprise.</p>
+                </div>
+                <div class="skill-category">
+                    <h3>📰 Actualités Multi-sites</h3>
+                    <p style="color: var(--gray-light);">Création d'un système d'actualités centralisé capable d'agréger efficacement le contenu des 29 sites de l'intranet, en intégrant une gestion fine des permissions (lecture/écriture).</p>
+                </div>
+                <div class="skill-category">
+                    <h3>⚙️ Automatisation PowerShell</h3>
+                    <p style="color: var(--gray-light);">Mise en place de la synchronisation quotidienne de 16 190 clients depuis la base métier vers SharePoint, avec gestion automatique des droits complexes et de l'arborescence.</p>
+                </div>
+                <div class="skill-category">
+                    <h3>📑 Pré-projets R&D</h3>
+                    <p style="color: var(--gray-light);">Interface React développée pour le service Recherche & Développement, simplifiant la saisie des projets, couplée à une génération automatisée de documents Word (OOXML).</p>
+                </div>
+                <div class="skill-category">
+                    <h3>🔒 Architecture & Sécurité</h3>
+                    <p style="color: var(--gray-light);">Définition d'un modèle de métadonnées transversal, d'un cycle de vie pour les documents, et implémentation d'une authentification applicative sécurisée par certificat (Entra ID).</p>
+                </div>
+            </div>
+        </section>
+
+        <section style="margin-bottom: 4rem;">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2 class="section-title">Architecture Technique</h2>
+            </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number">SPFx</span>
+                    <span class="stat-label">SharePoint Framework</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">React</span>
+                    <span class="stat-label">Composants d'interface</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">PowerShell</span>
+                    <span class="stat-label">Scripts & PnP</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">Graph API</span>
+                    <span class="stat-label">Intégration Microsoft 365</span>
+                </div>
+            </div>
+        </section>
+
+        <section style="margin-bottom: 4rem;">
+            <div class="section-header">
+                <span class="section-number">05</span>
+                <h2 class="section-title">Compétences Développées</h2>
+            </div>
+            <div class="about-features">
+                <div class="feature-card">
+                    <div class="feature-icon">💻</div>
+                    <h3>Développement Web</h3>
+                    <p>React, TypeScript, intégration profonde avec l'écosystème Microsoft 365</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Automatisation SI</h3>
+                    <p>Scripting PowerShell, gestion et optimisation des limites d'API (Throttling)</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Sécurité & Identité</h3>
+                    <p>Entra ID, gestion de permissions complexes sur SharePoint</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Architecture de Données</h3>
+                    <p>Conception d'un système d'information et d'un écosystème documentaire unifié</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Gestion de Projet</h3>
+                    <p>Animation d'ateliers avec les utilisateurs, conduite et accompagnement du changement</p>
+                </div>
+            </div>
+        </section>
+
+        <section style="margin-bottom: 4rem;">
+            <div class="section-header">
+                <span class="section-number">06</span>
+                <h2 class="section-title">Bilan du Projet</h2>
+            </div>
+            <div class="contact-cta">
+                <h3>✨ Une transformation réussie</h3>
+                <p style="margin-bottom: 1rem;">La migration a permis à l'ensemble des collaborateurs du Groupe ICV de bénéficier d'une base documentaire moderne, pérenne et hautement sécurisée. La méthode de déploiement itérative avec les équipes métiers a garanti une excellente adoption des nouveaux outils.</p>
+                <p>Ce stage m'a offert l'opportunité de gérer des problématiques complexes de production à grande échelle, de manipuler des données réelles, et de prendre des décisions d'architecture structurantes documentées et assumées.</p>
+            </div>
+        </section>
+
+        <div style="text-align: center; margin-top: 4rem;">
+            <a href="index.html#projets" class="btn btn-primary btn-large">
+                ← Retour aux Projets
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-content">
+        <p>&copy; 2026 Sacha DOUBLET. Tous droits réservés.</p>
+        <p class="footer-tagline">Conçu avec passion</p>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+    if (localStorage.getItem('theme') === 'light') {
+        document.body.classList.add('light-theme');
+    }
+</script>
+</body>
+</html>
